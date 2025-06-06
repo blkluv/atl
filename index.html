@@ -41,25 +41,40 @@
       font-weight: 500;
     }
     
-    /* Hero Banner */
+    /* Hero Banner with YouTube Video */
     .hero {
       position: relative;
       height: 80vh;
-      background: linear-gradient(to top, #141414 0%, transparent 50%), 
-                  url('https://images.unsplash.com/photo-1496293455970-f8581aae0e3b');
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      padding: 0 45px;
+      overflow: hidden;
+    }
+    
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
     }
     
     .hero-content {
+      position: relative;
       max-width: 600px;
+      padding: 0 45px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 100%);
     }
     
     .hero h1 {
       font-size: 3.5rem;
       margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     
     .hero-buttons {
@@ -76,6 +91,12 @@
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .play-button:hover {
+      background: #E50914;
+      color: white;
     }
     
     /* Filter Bar (Genre Selection) */
@@ -99,13 +120,14 @@
       border-radius: 20px;
       cursor: pointer;
       white-space: nowrap;
+      transition: all 0.3s;
     }
     
     .filter-button:hover, .filter-button.active {
-      background: #E50914; /* Netflix red */
+      background: #E50914;
     }
     
-    /* YouTube Shorts Grid */
+    /* YouTube Shorts Grid with Custom Thumbnails */
     .content-section {
       margin: 30px 45px;
     }
@@ -131,12 +153,41 @@
       border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    
+    .short-embed:hover {
+      transform: scale(1.05);
+    }
+    
+    .short-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     
     .short-embed iframe {
       width: 100%;
       height: 100%;
       border: none;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      z-index: 1;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     
     /* Footer */
@@ -156,15 +207,17 @@
       <a href="#">Home</a>
       <a href="#">Live</a>
       <a href="#">Shorts</a>
-      <a href="#">ATLien Key</a>
+      <a href="#">Sub</a>
+      <a href="#">$ATL TIPS</a>
     </div>
   </nav>
 
-  <!-- Hero Banner -->
+  <!-- Hero Banner with YouTube Video -->
   <section class="hero">
+    <iframe class="hero-video" src="https://www.youtube.com/embed/p3VQtMlpKPoa?autoplay=1&mute=1&loop=1&playlist=p3VQtMlpKPoa&controls=0&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
     <div class="hero-content">
-      <h1>ATL5D SHORTS</h1>
-      <p>🔥 Trending clips from ATL's top creators</p>
+      <h1>ATL5D</h1>
+      <p>🔥 24/7 Livestream for subscribers + Trending clips from ATL's top creators. Tip in $ATL to hype creators up to launch their own livestream show.</p>
       <div class="hero-buttons">
         <button class="play-button">▶️ Watch Live</button>
       </div>
@@ -174,6 +227,7 @@
   <!-- Filter Bar (Genre Selection) -->
   <div class="filter-bar">
     <button class="filter-button active" data-filter="all">All</button>
+    <button class="filter-button" data-filter="atl5d">🅰️TL5D</button>
     <button class="filter-button" data-filter="hair">💇 Hair</button>
     <button class="filter-button" data-filter="music">🎵 Music</button>
     <button class="filter-button" data-filter="spiritual">🙏 Spiritual</button>
@@ -181,49 +235,68 @@
     <button class="filter-button" data-filter="fashion">👗 Fashion</button>
   </div>
 
-  <!-- YouTube Shorts Sections -->
-  <div class="content-section" data-category="hair">
-    <h2 class="section-title">💇 ATL Hair & Beauty</h2>
+  <!-- ATL5D Shorts Section -->
+  <div class="content-section" data-category="atl5d">
+    <h2 class="section-title">🅰️TL5D</h2>
     <div class="shorts-grid">
-      <!-- Replace SHORT_ID with actual YouTube Shorts IDs -->
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_1?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/vCqHxobz48w/maxresdefault.jpg') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/vCqHxobz48w?autoplay=0&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_2?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/wYqO0GJz6Kg/maxresdefault.jpg') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/wYqO0GJz6Kg?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_3?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/FctrsvZLuLU/maxresdefault.jpg') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/FctrsvZLuLU?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_4?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/Sj3kiUtfaw8/maxresdefault.jpg') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/Sj3kiUtfaw8?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
+  <!-- Hair Shorts Section -->
+  <div class="content-section" data-category="hair">
+    <h2 class="section-title">💇 ATL Hair & Beauty</h2>
+    <div class="shorts-grid">
+      <div class="short-embed">
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/vCqHxobz48w/maxresdefault.jpg') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/vCqHxobz48w?autoplay=0&mute=1" allowfullscreen></iframe>
+      </div>
+      <div class="short-embed">
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=HAIR+SHORT+2') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_2?autoplay=0&mute=1" allowfullscreen></iframe>
+      </div>
+      <div class="short-embed">
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=HAIR+SHORT+3') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_3?autoplay=0&mute=1" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Music Shorts Section -->
   <div class="content-section" data-category="music">
     <h2 class="section-title">🎵 ATL Music & Culture</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_5?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_5?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_6?autoplay=0&mute=1"></iframe>
-      </div>
-      <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_7?autoplay=0&mute=1"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-section" data-category="spiritual">
-    <h2 class="section-title">🙏 Spiritual & Wellness</h2>
-    <div class="shorts-grid">
-      <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_8?autoplay=0&mute=1"></iframe>
-      </div>
-      <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_9?autoplay=0&mute=1"></iframe>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
+        <div class="play-icon">▶️</div>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_6?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -254,6 +327,27 @@
             section.style.display = 'none';
           }
         });
+      });
+    });
+
+    // Click to play functionality for shorts
+    document.querySelectorAll('.short-embed').forEach(short => {
+      short.addEventListener('click', function() {
+        const iframe = this.querySelector('iframe');
+        const poster = this.querySelector('.short-poster');
+        const playIcon = this.querySelector('.play-icon');
+        
+        // Hide poster and play icon
+        poster.style.display = 'none';
+        playIcon.style.display = 'none';
+        
+        // Get the src and add autoplay
+        let src = iframe.src;
+        if (!src.includes('autoplay=1')) {
+          iframe.src = src.includes('?') ? 
+            src + '&autoplay=1' : 
+            src + '?autoplay=1';
+        }
       });
     });
   </script>
