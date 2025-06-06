@@ -12,26 +12,31 @@
       color: white;
       margin: 0;
       padding: 0;
+      padding-top: 80px; /* Added for fixed navbar */
     }
     
-    /* Navbar */
+    /* Navbar - Updated for responsiveness */
     .navbar {
       display: flex;
       justify-content: space-between;
-      padding: 20px 45px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+      align-items: center;
+      padding: 15px 5%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
       position: fixed;
+      top: 0;
       width: 100%;
       z-index: 100;
+      box-sizing: border-box;
     }
     
     .logo {
       height: 40px;
+      width: auto;
     }
     
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       align-items: center;
     }
     
@@ -39,6 +44,16 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: #E50914;
     }
     
     /* Hero Banner with YouTube Video */
@@ -63,7 +78,7 @@
     .hero-content {
       position: relative;
       max-width: 600px;
-      padding: 0 45px;
+      padding: 0 5%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -72,7 +87,7 @@
     }
     
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
@@ -102,14 +117,19 @@
     /* Filter Bar (Genre Selection) */
     .filter-bar {
       display: flex;
-      gap: 15px;
-      padding: 15px 45px;
+      gap: 10px;
+      padding: 15px 5%;
       background: #141414;
       border-bottom: 1px solid #333;
       position: sticky;
       top: 80px;
       z-index: 90;
       overflow-x: auto;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+    }
+    
+    .filter-bar::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome/Safari */
     }
     
     .filter-button {
@@ -121,6 +141,7 @@
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s;
+      flex-shrink: 0;
     }
     
     .filter-button:hover, .filter-button.active {
@@ -129,7 +150,7 @@
     
     /* YouTube Shorts Grid with Custom Thumbnails */
     .content-section {
-      margin: 30px 45px;
+      margin: 30px 5%;
     }
     
     .section-title {
@@ -145,6 +166,8 @@
       overflow-x: auto;
       gap: 15px;
       padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
     
     .short-embed {
@@ -156,6 +179,7 @@
       position: relative;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       transition: transform 0.3s;
+      scroll-snap-align: start;
     }
     
     .short-embed:hover {
@@ -192,10 +216,56 @@
     
     /* Footer */
     .footer {
-      padding: 30px 45px;
+      padding: 30px 5%;
       text-align: center;
       background: #141414;
       border-top: 1px solid #333;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+      
+      .nav-links a {
+        max-width: 80px;
+        font-size: 14px;
+      }
+      
+      .hero-content {
+        padding: 0 20px;
+      }
+      
+      .content-section {
+        margin: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 12px 15px;
+      }
+      
+      .logo {
+        height: 30px;
+      }
+      
+      .nav-links a {
+        max-width: 60px;
+        font-size: 12px;
+        padding: 5px;
+      }
+      
+      .filter-button {
+        padding: 6px 15px;
+        font-size: 14px;
+      }
+      
+      .short-embed {
+        min-width: 160px;
+        height: 280px;
+      }
     }
   </style>
 </head>
@@ -211,27 +281,28 @@
   </nav>
 
   <!-- Hero Banner with Optimized YouTube Video -->
-<section class="hero">
-  <!-- YouTube placeholder with poster image -->
-  <div class="video-placeholder" style="background: url('https://i.imgur.com/lDbYyeu.png') center/cover;">
-    <iframe 
-      class="hero-video" 
-      src="https://www.youtube.com/embed/p3VQtMlpKPo?autoplay=1&mute=1&loop=1&controls=0&playsinline=1&rel=0&enablejsapi=1&playlist=p3VQtMlpKPo" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen
-      loading="eager"
-    ></iframe>
-  </div>
-  <div class="hero-content">
-    <h1>ATL5D</h1>
-    <p>🔥 24/7 exclusive livestreams for subscribers. Watch trending clips from ATL’s top creators and tip in $ATL to help them launch their own shows!</p>
-    <div class="hero-buttons">
-      <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 Subscribe</a>
+  <section class="hero">
+    <!-- YouTube placeholder with poster image -->
+    <div class="video-placeholder" style="background: url('https://i.imgur.com/lDbYyeu.png') center/cover;">
+      <iframe 
+        class="hero-video" 
+        src="https://www.youtube.com/embed/p3VQtMlpKPo?autoplay=1&mute=1&loop=1&controls=0&playsinline=1&rel=0&enablejsapi=1&playlist=p3VQtMlpKPo" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        loading="eager"
+      ></iframe>
     </div>
-  </div>
-</section>
+    <div class="hero-content">
+      <h1>ATL5D</h1>
+      <p>🔥 24/7 exclusive livestreams for subscribers. Watch trending clips from ATL's top creators and tip in $ATL to help them launch their own shows!</p>
+      <div class="hero-buttons">
+        <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 Subscribe</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Rest of your HTML content remains the same -->
   <!-- Filter Bar (Genre Selection) -->
   <div class="filter-bar">
     <button class="filter-button active" data-filter="all">All</button>
@@ -265,7 +336,7 @@
     </div>
   </div>
 
-  <!-- Hair Shorts Section -->
+  <!-- Game Shorts Section -->
   <div class="content-section" data-category="game">
     <h2 class="section-title">🎮 GAMES</h2>
     <div class="shorts-grid">
@@ -275,12 +346,12 @@
         <iframe src="https://www.youtube.com/embed/Sj3kiUtfaw8?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=HAIR+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/SHORT_ID_2?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=HAIR+SHORT+3') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+3') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/SHORT_ID_3?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
@@ -304,51 +375,51 @@
     </div>
   </div>
 
-    <!-- Music Shorts Section -->
-  <div class="content-section" data-category="music">
+  <!-- Spiritual Shorts Section -->
+  <div class="content-section" data-category="spiritual">
     <h2 class="section-title">✨ SPIRITUAL</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/04a2SjCCRuQ?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/QenZOWxJ8ZQ?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-    <!-- Music Shorts Section -->
-  <div class="content-section" data-category="music">
+  <!-- Comedy Shorts Section -->
+  <div class="content-section" data-category="comedy">
     <h2 class="section-title">😂 COMEDY</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/aW3IacKTpgo?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/Lw7hhemvt3o?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-      <!-- Music Shorts Section -->
+  <!-- Business Shorts Section -->
   <div class="content-section" data-category="biz">
-    <h2 class="section-title">🅱️IZ </h2>
+    <h2 class="section-title">🅱️IZ</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/ReKj2vlFlRg?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/yh1ru9LP6ks?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
