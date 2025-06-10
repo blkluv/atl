@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATL5D | 🔮 Your Portal to Atlanta's Digital Magic</title>
   <style>
-    /* Netflix-inspired dark theme - still slaps! */
+    /* Netflix-inspired dark theme */
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #141414; /* Dark as night, lit as a club */
-      color: white; /* Glow-up vibes */
+      background: #141414;
+      color: white;
       margin: 0;
       padding: 0;
-      padding-top: 80px; /* Space for the floating navbar */
+      padding-top: 80px;
+      line-height: 1.6;
     }
     
-    /* Navbar - Always there, always sleek */
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -27,11 +28,17 @@
       width: 100%;
       z-index: 100;
       box-sizing: border-box;
+      backdrop-filter: blur(5px);
     }
     
     .logo {
-      height: 40px; /* Clean AF */
+      height: 40px;
       width: auto;
+      transition: transform 0.3s;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
     }
     
     .nav-links {
@@ -49,17 +56,20 @@
       text-overflow: ellipsis;
       max-width: 100px;
       font-size: 16px;
-      transition: all 0.3s; /* Smooth transitions, no cap */
+      transition: all 0.3s;
+      padding: 8px 12px;
+      border-radius: 4px;
     }
     
     .nav-links a:hover {
-      color: #E50914; /* That ATL fire! 🔥 */
+      color: #E50914;
+      background: rgba(255,255,255,0.1);
     }
     
-    /* Hero Banner with YouTube Video - The Grand Entrance */
+    /* Hero Banner */
     .hero {
       position: relative;
-      height: 80vh; /* Make it pop */
+      height: 80vh;
       overflow: hidden;
     }
     
@@ -77,7 +87,7 @@
     
     .hero-content {
       position: relative;
-      max-width: 700px; /* Give it room to breathe */
+      max-width: 700px;
       padding: 0 5%;
       height: 100%;
       display: flex;
@@ -87,42 +97,49 @@
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Big, bold, and in charge */
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Extra pop */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      line-height: 1.2;
     }
 
     .hero p {
-        font-size: clamp(1rem, 2vw, 1.3rem); /* Easy to read, still fire */
+        font-size: clamp(1rem, 2vw, 1.3rem);
         line-height: 1.5;
         margin-top: 15px;
+        max-width: 90%;
     }
     
     .hero-buttons {
       display: flex;
-      flex-wrap: wrap; /* For mobile flexin' */
+      flex-wrap: wrap;
       gap: 15px;
       margin: 20px 0;
     }
     
     .play-button {
-      background: white; /* Clean, crisp */
+      background: white;
       color: black;
       border: none;
-      padding: 12px 35px; /* Thicker for impact */
+      padding: 12px 35px;
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s;
-      font-size: 1rem; /* Readable */
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
     }
     
     .play-button:hover {
-      background: #E50914; /* That red hot 🔥 */
+      background: #E50914;
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     
-    /* Filter Bar (Genre Selection) - Keeping the vibes organized */
+    /* Filter Bar */
     .filter-bar {
       display: flex;
       gap: 10px;
@@ -133,11 +150,11 @@
       top: 80px;
       z-index: 90;
       overflow-x: auto;
-      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      scrollbar-width: none;
     }
     
     .filter-bar::-webkit-scrollbar {
-      display: none; /* Hide scrollbar for Chrome/Safari */
+      display: none;
     }
     
     .filter-button {
@@ -145,29 +162,39 @@
       color: white;
       border: none;
       padding: 8px 20px;
-      border-radius: 20px; /* Smooth as butter */
+      border-radius: 20px;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s;
       flex-shrink: 0;
+      font-size: 0.9rem;
     }
     
     .filter-button:hover, .filter-button.active {
-      background: #E50914; /* Activated! */
+      background: #E50914;
+      transform: scale(1.05);
     }
     
-    /* Content Sections - Where the magic happens */
+    /* Content Sections */
     .content-section {
       margin: 30px 5%;
+      padding: 20px;
+      border-radius: 8px;
+      background: rgba(20,20,20,0.7);
+      transition: all 0.3s;
+    }
+
+    .content-section:hover {
+      background: rgba(30,30,30,0.7);
     }
     
     .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem); /* Section titles that hit different */
-      margin-bottom: 25px; /* More space to breathe */
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 25px;
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #FFD700; /* Gold for winners! 🏆 */
+      color: #FFD700;
     }
 
     .section-description {
@@ -189,15 +216,22 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+
+    .key-points li:hover {
+        background: rgba(255,255,255,0.05);
     }
 
     .key-points li .emoji {
         font-size: 1.5rem;
-        line-height: 1; /* Align emojis better */
+        line-height: 1;
         flex-shrink: 0;
     }
     
-    /* YouTube Shorts Grid with Custom Thumbnails - The 🔥 Reels */
+    /* YouTube Shorts Grid */
     .shorts-grid {
       display: flex;
       overflow-x: auto;
@@ -205,28 +239,30 @@
       padding-bottom: 20px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      scrollbar-width: none;
     }
     
     .shorts-grid::-webkit-scrollbar {
-      display: none; /* Hide scrollbar for Chrome/Safari */
+      display: none;
     }
 
     .short-embed {
-      min-width: 180px; /* Keep it tight */
+      min-width: 180px;
       height: 320px;
       border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
       position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Deep shadows */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: transform 0.3s;
       scroll-snap-align: start;
-      background: #222; /* Fallback for empty shorts */
+      background: #222;
+      cursor: pointer;
     }
     
     .short-embed:hover {
-      transform: scale(1.08); /* More noticeable hover */
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     }
     
     .short-poster {
@@ -236,6 +272,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      transition: opacity 0.3s;
     }
     
     .short-embed iframe {
@@ -251,13 +288,18 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.5rem; /* Bigger play icon */
+      font-size: 2.5rem;
       z-index: 1;
       color: white;
-      text-shadow: 0 0 15px rgba(0,0,0,0.8); /* More intense glow */
+      text-shadow: 0 0 15px rgba(0,0,0,0.8);
+      transition: all 0.3s;
     }
     
-    /* Footer - The outro */
+    .short-embed:hover .play-icon {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    
+    /* Footer */
     .footer {
       padding: 30px 5%;
       text-align: center;
@@ -267,7 +309,46 @@
       color: #aaa;
     }
 
-    /* Responsive adjustments - Keepin' it smooth on all devices */
+    /* Loading animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content-section {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .content-section:nth-child(2) { animation-delay: 0.1s; }
+    .content-section:nth-child(3) { animation-delay: 0.2s; }
+    .content-section:nth-child(4) { animation-delay: 0.3s; }
+    /* Add more as needed */
+
+    /* Tooltip for navigation */
+    .nav-links a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #E50914;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover::after {
+      opacity: 1;
+      bottom: -35px;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .navbar {
         padding: 15px 20px;
@@ -284,6 +365,10 @@
       
       .content-section {
         margin: 30px 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
       }
     }
     
@@ -316,9 +401,6 @@
         height: 260px;
       }
 
-      .hero h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-      }
       .hero p {
         font-size: 0.9rem;
       }
@@ -333,9 +415,9 @@
   <nav class="navbar">
     <img src="images/atlien_logo.png" alt="ATL5D Logo" class="logo">
     <div class="nav-links">
-      <a href="https://atl5d.com">🅰️TL5D</a>
-      <a href="https://wallo.atl5d.com">W🅰️LLO.</a>
-      <a href="https://tree.atl5d.com">🌴TREE.</a>
+      <a href="https://atl5d.com" data-tooltip="Home">🅰️TL5D</a>
+      <a href="https://wallo.atl5d.com" data-tooltip="Wallo">W🅰️LLO.</a>
+      <a href="https://tree.atl5d.com" data-tooltip="Tree">🌴TREE.</a>
     </div>
   </nav>
 
@@ -352,7 +434,7 @@
     </div>
     <div class="hero-content">
       <h1>The ATL5D Challenge: Quest for the #1 🅰️Rfluencer!</h1>
-      <p>🔥 Yo, ATL! We're on the hunt for the ultimate **🅰️Rfluencer**! Dive into Atlanta's hidden digital dimensions, create lit 11-second 🅰️DS using our exclusive AR effects at specific what3words locations, and battle it out for city recognition, awards, and major $ATL loyalty rewards! This ain't just a game; it's a vibe. 🚀</p>
+      <p>Yo, ATL! We're on the hunt for the ultimate 🅰️Rfluencer! Dive into Atlanta's hidden digital dimensions, create lit 11-second 🅰️DS using our exclusive AR effects at specific what3words locations, and battle it out for city recognition, awards, and major $ATL loyalty rewards! This ain't just a game; it's a vibe. 🚀</p>
       <div class="hero-buttons">
         <a href="#challenge-rules" class="play-button">🎮 JOIN THE CHALLENGE!</a>
         <a href="#biz-glow-up" class="play-button">📈 BIZ GLOW-UP? TAP HERE!</a>
@@ -373,28 +455,28 @@
   <div id="challenge-rules" class="content-section" data-category="atl5d">
     <h2 class="section-title">The ATL5D Challenge: Find the #1 🅰️Rfluencer! 🏆</h2>
     <p class="section-description">
-      It's time for Atlanta's creators to shine! We're scouting for the **#1 🅰️Rfluencer** – the legendary creator who can master our AR effects and turn real-world what3words blocks into viral TikTok gold! Think you got the rizz? 👀
+      It's time for Atlanta's creators to shine! We're scouting for the #1 🅰️Rfluencer – the legendary creator who can master our AR effects and turn real-world what3words blocks into viral TikTok gold! Think you got the rizz? 👀
     </p>
     <ul class="key-points">
-      <li><span class="emoji">🗺️</span> **The Quest:** We drop a what3words (w3w) address. You hit the block irl.</li>
-      <li><span class="emoji">✨</span> **Unlock the Magic:** Use our custom **ATL5D AR Effect** (find it in our TikTok bio, with a demo! 🤯) at the exact w3w spot.
-      <li><span class="emoji">🎥</span> **Create & Slay:** Film an epic **11-second 🅰️D Reel** that highlights the AR effect and the w3w block vibe. Make it viral!</li>
-      <li><span class="emoji">💸</span> **Get Tipped in $ATL:** The most viral Reels win cold hard **$ATL tips** straight to your wallet! Plus, you get those bragging rights.</li>
-      <li><span class="emoji">👑</span> **Crown the #1:** Dominate the challenges to become the reigning #1 🅰️Rfluencer, earning exclusive perks and eternal city reconightion!</li>
+      <li><span class="emoji">🗺️</span> The Quest: We drop a what3words (w3w) address. You hit the block irl.</li>
+      <li><span class="emoji">✨</span> Unlock the Magic: Use our custom ATL5D AR Effect (find it in our TikTok bio, with a demo! 🤯) at the exact w3w spot.</li>
+      <li><span class="emoji">🎥</span> Create & Slay: Film an epic 11-second 🅰️D Reel that highlights the AR effect and the w3w block vibe. Make it viral!</li>
+      <li><span class="emoji">💸</span> Get Tipped in $ATL: The most viral Reels win cold hard $ATL tips straight to your wallet! Plus, you get those bragging rights.</li>
+      <li><span class="emoji">👑</span> Crown the #1: Dominate the challenges to become the reigning #1 🅰️Rfluencer, earning exclusive perks and eternal city reconightion!</li>
     </ul>
     <p class="section-description">
-      Every **11-second 🅰️D Reel** you create will be automatically mapped to its specific w3w location on our official <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D TikTok</a> profile. This means your AR masterpiece becomes a permanent digital beacon for that exact spot! IYKYK. 😉
+      Every 11-second 🅰️D Reel you create will be automatically mapped to its specific w3w location on our official <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D TikTok</a> profile. This means your AR masterpiece becomes a permanent digital beacon for that exact spot! IYKYK. 😉
     </p>
   </div>
 
   <div class="content-section" data-category="atl5d">
     <h2 class="section-title">Unlocking the Magic: Your $ATL Power-Up! 💰✨</h2>
     <p class="section-description">
-      What's the tea on **$ATL**? It's our exclusive loyalty reward, fam! Think of it as your digital ATL currency for crushing it in the ATL5D Dimension.
+      What's the tea on $ATL? It's our exclusive loyalty reward, fam! Think of it as your digital ATL currency for crushing it in the ATL5D Dimension.
     </p>
     <ul class="key-points">
-      <li><span class="emoji">💎</span> **Earn $ATL:** Win challenges, create viral 11-sec 🅰️DS, and get tipped by fans on our livestreams. The more you slay, the more $ATL you stack!</li>
-      <li><span class="emoji">🤝</span> **Redeem $ATL at Partner Biz!** This is where it gets REAL. Small businesses in Atlanta are leveling up by partnering with ATL5D. ARfluencers can redeem their $ATL for legit rewards at these participating spots.</li>
+      <li><span class="emoji">💎</span> Earn $ATL: Win challenges, create viral 11-sec 🅰️DS, and get tipped by fans on our livestreams. The more you slay, the more $ATL you stack!</li>
+      <li><span class="emoji">🤝</span> Redeem $ATL at Partner Biz! This is where it gets REAL. Small businesses in Atlanta are leveling up by partnering with ATL5D. ARfluencers can redeem their $ATL for legit rewards at these participating spots.</li>
     </ul>
   </div>
 
@@ -404,15 +486,15 @@
       Hey ATL small businesses! Wanna get some serious recognition and free marketing without simping? 💅 This is your moment!
     </p>
     <ul class="key-points">
-      <li><span class="emoji">🔥</span> **Free Marketing, No Cap!** Partnering ATL5D businesses can redeem $ATL (from 🅰️Rfluencers spending it) for:
+      <li><span class="emoji">🔥</span> Free Marketing, No Cap! Partnering ATL5D businesses can redeem $ATL (from 🅰️Rfluencers spending it) for:
         <ul>
-          <li><span class="emoji">🎬</span> **ATL5D.COM Short Reel Ads:** Get your business featured with custom 11-sec short reel ads on our platform, reaching a massive, engaged audience.</li>
-          <li><span class="emoji">🌐</span> **Branded AR Effect what3words Signs:** Imagine having your own custom AR effect tied to your business's what3words location! This creates an immersive, interactive "sign" that customers can discover and share on TikTok, driving real-world traffic to your physical spot. It's like a digital billboard that moves and grooves!</li>
+          <li><span class="emoji">🎬</span> ATL5D.COM Short Reel Ads: Get your business featured with custom 11-sec short reel ads on our platform, reaching a massive, engaged audience.</li>
+          <li><span class="emoji">🌐</span> Branded AR Effect what3words Signs: Imagine having your own custom AR effect tied to your business's what3words location! This creates an immersive, interactive "sign" that customers can discover and share on TikTok, driving real-world traffic to your physical spot. It's like a digital billboard that moves and grooves!</li>
         </ul>
       </li>
-      <li><span class="emoji">🏆</span> **Awards & Recognition:** Partnering businesses and featured creators can win official ATL5D awards, boosting your city reconightion.</li>
-      <li><span class="emoji">💖</span> **Community Loyalty:** Build mad loyalty with the ATL5D community and 🅰️Rfluencers who are spending their hard-earned $ATL at your biz.</li>
-      <li><span class="emoji">🌟</span> **Livestream Spotlight:** Winners of challenges (both 🅰️Rfluencers and partnering businesses) will be featured on our **ATL5D Livestream Event**. This is your chance to share your winning story, explain how the challenge benefited you, and flex your success to the whole city! It's pure, unadulterated exposure and recognition.</li>
+      <li><span class="emoji">🏆</span> Awards & Recognition: Partnering businesses and featured creators can win official ATL5D awards, boosting your city reconightion.</li>
+      <li><span class="emoji">💖</span> Community Loyalty: Build mad loyalty with the ATL5D community and 🅰️Rfluencers who are spending their hard-earned $ATL at your biz.</li>
+      <li><span class="emoji">🌟</span> Livestream Spotlight: Winners of challenges (both 🅰️Rfluencers and partnering businesses) will be featured on our ATL5D Livestream Event. This is your chance to share your winning story, explain how the challenge benefited you, and flex your success to the whole city! It's pure, unadulterated exposure and recognition.</li>
     </ul>
   </div>
 
@@ -422,8 +504,8 @@
       Ready to dive into the ATL5D Dimension? Finding our AR effects is easier than finding good vibes in Atlanta! ✨
     </p>
     <ul class="key-points">
-      <li><span class="emoji">🔗</span> **Bio Link Magic:** All official ATL5D AR effects are linked directly in our TikTok bio on <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D</a>. Just tap the link!</li>
-      <li><span class="emoji"> walkthrough:** We'll also have quick demo videos and walkthroughs pinned on our TikTok and linked here to show you exactly how to use the effects and slay your Reels. No cap, it's super easy!</li>
+      <li><span class="emoji">🔗</span> Bio Link Magic: All official ATL5D AR effects are linked directly in our TikTok bio on <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D</a>. Just tap the link!</li>
+      <li><span class="emoji">📱</span> Walkthrough: We'll also have quick demo videos and walkthroughs pinned on our TikTok and linked here to show you exactly how to use the effects and slay your Reels. No cap, it's super easy!</li>
     </ul>
   </div>
 
@@ -448,7 +530,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/FctrsvZLuLU?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="content-section" data-category="game">
@@ -464,7 +546,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_GAME2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="content-section" data-category="music">
@@ -480,7 +562,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_MUSIC2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="content-section" data-category="spiritual">
@@ -496,7 +578,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_SPIRITUAL2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="content-section" data-category="comedy">
@@ -512,7 +594,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_COMEDY2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <div class="content-section" data-category="biz">
@@ -528,7 +610,7 @@
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_BIZ2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      </div>
+    </div>
   </div>
 
   <footer class="footer">
@@ -555,6 +637,12 @@
             section.style.display = 'none';
           }
         });
+        
+        // Smooth scroll to first visible section
+        const firstVisible = document.querySelector('.content-section[style="display: block;"]');
+        if (firstVisible) {
+          firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
 
@@ -577,6 +665,19 @@
             src + '?autoplay=1';
         }
       });
+    });
+
+    // Add loading animation to sections as they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.content-section').forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
