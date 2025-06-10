@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATL5D | Livestream TV</title>
+  <title>ATL5D | 🔮 Your Portal to Atlanta's Digital Magic</title>
   <style>
-    /* Netflix-inspired dark theme */
+    /* Netflix-inspired dark theme - still slaps! */
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #141414;
-      color: white;
+      background: #141414; /* Dark as night, lit as a club */
+      color: white; /* Glow-up vibes */
       margin: 0;
       padding: 0;
-      padding-top: 80px; /* Added for fixed navbar */
+      padding-top: 80px; /* Space for the floating navbar */
     }
     
-    /* Navbar - Updated for responsiveness */
+    /* Navbar - Always there, always sleek */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -30,7 +30,7 @@
     }
     
     .logo {
-      height: 40px;
+      height: 40px; /* Clean AF */
       width: auto;
     }
     
@@ -49,17 +49,17 @@
       text-overflow: ellipsis;
       max-width: 100px;
       font-size: 16px;
-      transition: all 0.3s;
+      transition: all 0.3s; /* Smooth transitions, no cap */
     }
     
     .nav-links a:hover {
-      color: #E50914;
+      color: #E50914; /* That ATL fire! 🔥 */
     }
     
-    /* Hero Banner with YouTube Video */
+    /* Hero Banner with YouTube Video - The Grand Entrance */
     .hero {
       position: relative;
-      height: 80vh;
+      height: 80vh; /* Make it pop */
       overflow: hidden;
     }
     
@@ -77,7 +77,7 @@
     
     .hero-content {
       position: relative;
-      max-width: 600px;
+      max-width: 700px; /* Give it room to breathe */
       padding: 0 5%;
       height: 100%;
       display: flex;
@@ -87,34 +87,42 @@
     }
     
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Big, bold, and in charge */
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Extra pop */
+    }
+
+    .hero p {
+        font-size: clamp(1rem, 2vw, 1.3rem); /* Easy to read, still fire */
+        line-height: 1.5;
+        margin-top: 15px;
     }
     
     .hero-buttons {
       display: flex;
+      flex-wrap: wrap; /* For mobile flexin' */
       gap: 15px;
       margin: 20px 0;
     }
     
     .play-button {
-      background: white;
+      background: white; /* Clean, crisp */
       color: black;
       border: none;
-      padding: 10px 30px;
+      padding: 12px 35px; /* Thicker for impact */
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s;
+      font-size: 1rem; /* Readable */
     }
     
     .play-button:hover {
-      background: #E50914;
+      background: #E50914; /* That red hot 🔥 */
       color: white;
     }
     
-    /* Filter Bar (Genre Selection) */
+    /* Filter Bar (Genre Selection) - Keeping the vibes organized */
     .filter-bar {
       display: flex;
       gap: 10px;
@@ -137,7 +145,7 @@
       color: white;
       border: none;
       padding: 8px 20px;
-      border-radius: 20px;
+      border-radius: 20px; /* Smooth as butter */
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s;
@@ -145,22 +153,51 @@
     }
     
     .filter-button:hover, .filter-button.active {
-      background: #E50914;
+      background: #E50914; /* Activated! */
     }
     
-    /* YouTube Shorts Grid with Custom Thumbnails */
+    /* Content Sections - Where the magic happens */
     .content-section {
       margin: 30px 5%;
     }
     
     .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem); /* Section titles that hit different */
+      margin-bottom: 25px; /* More space to breathe */
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #FFD700; /* Gold for winners! 🏆 */
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: #ddd;
+    }
+
+    .key-points {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .key-points li {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .key-points li .emoji {
+        font-size: 1.5rem;
+        line-height: 1; /* Align emojis better */
+        flex-shrink: 0;
     }
     
+    /* YouTube Shorts Grid with Custom Thumbnails - The 🔥 Reels */
     .shorts-grid {
       display: flex;
       overflow-x: auto;
@@ -168,22 +205,28 @@
       padding-bottom: 20px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
     }
     
+    .shorts-grid::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome/Safari */
+    }
+
     .short-embed {
-      min-width: 180px;
+      min-width: 180px; /* Keep it tight */
       height: 320px;
       border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
       position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Deep shadows */
       transition: transform 0.3s;
       scroll-snap-align: start;
+      background: #222; /* Fallback for empty shorts */
     }
     
     .short-embed:hover {
-      transform: scale(1.05);
+      transform: scale(1.08); /* More noticeable hover */
     }
     
     .short-poster {
@@ -208,21 +251,23 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2rem;
+      font-size: 2.5rem; /* Bigger play icon */
       z-index: 1;
       color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      text-shadow: 0 0 15px rgba(0,0,0,0.8); /* More intense glow */
     }
     
-    /* Footer */
+    /* Footer - The outro */
     .footer {
       padding: 30px 5%;
       text-align: center;
       background: #141414;
       border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #aaa;
     }
 
-    /* Responsive adjustments */
+    /* Responsive adjustments - Keepin' it smooth on all devices */
     @media (max-width: 768px) {
       .navbar {
         padding: 15px 20px;
@@ -251,9 +296,13 @@
         height: 30px;
       }
       
+      .nav-links {
+        gap: 10px;
+      }
+
       .nav-links a {
-        max-width: 60px;
-        font-size: 12px;
+        max-width: 50px;
+        font-size: 11px;
         padding: 5px;
       }
       
@@ -263,30 +312,38 @@
       }
       
       .short-embed {
-        min-width: 160px;
-        height: 280px;
+        min-width: 150px;
+        height: 260px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .play-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <img src="images/atlien_logo.png" alt="ATL5D Logo" class="logo">
     <div class="nav-links">
-      <a href="https://atl5d.com">🅰️</a>
+      <a href="https://atl5d.com">🅰️TL5D</a>
       <a href="https://wallo.atl5d.com">W🅰️LLO.</a>
-      <a href="https://tree.atl5d.com">🌴 TREE.</a>
+      <a href="https://tree.atl5d.com">🌴TREE.</a>
     </div>
   </nav>
 
-  <!-- Hero Banner with Optimized YouTube Video -->
   <section class="hero">
-    <!-- YouTube placeholder with poster image -->
     <div class="video-placeholder" style="background: url('https://i.imgur.com/lDbYyeu.png') center/cover;">
       <iframe 
         class="hero-video" 
-        src="https://www.youtube.com/embed/p3VQtMlpKPo?autoplay=1&mute=1&loop=1&controls=0&playsinline=1&rel=0&enablejsapi=1&playlist=p3VQtMlpKPo" 
+        src="https://www.youtube.com/embed/YOUR_HERO_VIDEO_ID?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=YOUR_HERO_VIDEO_ID" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
@@ -294,145 +351,190 @@
       ></iframe>
     </div>
     <div class="hero-content">
-      <h1>🅰️TL5D</h1>
-      <p>🔥 ATL’s own 🅰️FLIX — nonstop 24/7 live shows with SMS hype. Fans flex by buying, selling, and swapping 11-sec reels in the 🅰️conomy, tipping $ATL to launch their own livestream show!</p>
+      <h1>The ATL5D Challenge: Quest for the #1 🩸ARfluencer!</h1>
+      <p>🔥 Yo, ATL! We're on the hunt for the ultimate **🩸ARfluencer**! Dive into Atlanta's hidden digital dimensions, create lit 11-second 🅰️DS using our exclusive AR effects at specific what3words locations, and battle it out for city recognition, awards, and major $ATL loyalty rewards! This ain't just a game; it's a vibe. 🚀</p>
       <div class="hero-buttons">
-        <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 SUBSCRIBE TO 🅰️VERSE</a>
-        <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 CREATE A W🅰️LLO</a>
+        <a href="#challenge-rules" class="play-button">🎮 JOIN THE CHALLENGE!</a>
+        <a href="#biz-glow-up" class="play-button">📈 BIZ GLOW-UP? TAP HERE!</a>
       </div>
     </div>
   </section>
 
-  <!-- Rest of your HTML content remains the same -->
-  <!-- Filter Bar (Genre Selection) -->
   <div class="filter-bar">
-    <button class="filter-button active" data-filter="all">All</button>
-    <button class="filter-button" data-filter="atl5d">🅰️TL5D</button>
-    <button class="filter-button" data-filter="game">🎮 GAMES</button>
-    <button class="filter-button" data-filter="music">🎵 MUSIC</button>
-    <button class="filter-button" data-filter="spiritual">✨ SPIRITUAL</button>
-    <button class="filter-button" data-filter="comedy">😂 COMEDY</button>
-    <button class="filter-button" data-filter="biz">🅱️IZ</button>
+    <button class="filter-button active" data-filter="all">All The Vibes</button>
+    <button class="filter-button" data-filter="atl5d">🅰️TL5D 🔥</button>
+    <button class="filter-button" data-filter="game">🎮 Challenges</button>
+    <button class="filter-button" data-filter="music">🎵 Beat Droppers</button>
+    <button class="filter-button" data-filter="spiritual">✨ Soul Fuel</button>
+    <button class="filter-button" data-filter="comedy">😂 LMAO Reels</button>
+    <button class="filter-button" data-filter="biz">🅱️IZ Hacks</button>
   </div>
 
-  <!-- ATL5D Shorts Section -->
+  <div id="challenge-rules" class="content-section" data-category="atl5d">
+    <h2 class="section-title">The ATL5D Challenge: Find the #1 🩸ARfluencer! 🏆</h2>
+    <p class="section-description">
+      It's time for Atlanta's creators to shine! We're scouting for the **#1 🩸ARfluencer** – the legendary creator who can master our AR effects and turn real-world what3words blocks into viral TikTok gold! Think you got the rizz? 👀
+    </p>
+    <ul class="key-points">
+      <li><span class="emoji">🗺️</span> **The Quest:** We drop a what3words (w3w) address. You hit the block irl.</li>
+      <li><span class="emoji">✨</span> **Unlock the Magic:** Use our custom **ATL5D AR Effect** (find it in our TikTok bio, with a demo! 🤯) at the exact w3w spot.
+      <li><span class="emoji">🎥</span> **Create & Slay:** Film an epic **11-second 🅰️D Reel** that highlights the AR effect and the w3w block vibe. Make it viral!</li>
+      <li><span class="emoji">💸</span> **Get Tipped in $ATL:** The most viral Reels win cold hard **$ATL tips** straight to your wallet! Plus, you get those bragging rights.</li>
+      <li><span class="emoji">👑</span> **Crown the #1:** Dominate the challenges to become the reigning #1 🩸ARfluencer, earning exclusive perks and eternal city reconightion!</li>
+    </ul>
+    <p class="section-description">
+      Every **11-second 🅰️D Reel** you create will be automatically mapped to its specific w3w location on our official <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D TikTok</a> profile. This means your AR masterpiece becomes a permanent digital beacon for that exact spot! IYKYK. 😉
+    </p>
+  </div>
+
   <div class="content-section" data-category="atl5d">
-    <h2 class="section-title">🅰️TL5D</h2>
+    <h2 class="section-title">Unlocking the Magic: Your $ATL Power-Up! 💰✨</h2>
+    <p class="section-description">
+      What's the tea on **$ATL**? It's our exclusive loyalty reward, fam! Think of it as your digital ATL currency for crushing it in the ATL5D Dimension.
+    </p>
+    <ul class="key-points">
+      <li><span class="emoji">💎</span> **Earn $ATL:** Win challenges, create viral 11-sec 🅰️DS, and get tipped by fans on our livestreams. The more you slay, the more $ATL you stack!</li>
+      <li><span class="emoji">🤝</span> **Redeem $ATL at Partner Biz!** This is where it gets REAL. Small businesses in Atlanta are leveling up by partnering with ATL5D. ARfluencers can redeem their $ATL for legit rewards at these participating spots.</li>
+    </ul>
+  </div>
+
+  <div id="biz-glow-up" class="content-section" data-category="biz">
+    <h2 class="section-title">Biz Glow-Up: How ATL5D Fuels Your Fame! 📈</h2>
+    <p class="section-description">
+      Hey ATL small businesses! Wanna get some serious recognition and free marketing without simping? 💅 This is your moment!
+    </p>
+    <ul class="key-points">
+      <li><span class="emoji">🔥</span> **Free Marketing, No Cap!** Partnering ATL5D businesses can redeem $ATL (from 🩸ARfluencers spending it) for:
+        <ul>
+          <li><span class="emoji">🎬</span> **ATL5D.COM Short Reel Ads:** Get your business featured with custom 11-sec short reel ads on our platform, reaching a massive, engaged audience.</li>
+          <li><span class="emoji">🌐</span> **Branded AR Effect what3words Signs:** Imagine having your own custom AR effect tied to your business's what3words location! This creates an immersive, interactive "sign" that customers can discover and share on TikTok, driving real-world traffic to your physical spot. It's like a digital billboard that moves and grooves!</li>
+        </ul>
+      </li>
+      <li><span class="emoji">🏆</span> **Awards & Recognition:** Partnering businesses and featured creators can win official ATL5D awards, boosting your city reconightion.</li>
+      <li><span class="emoji">💖</span> **Community Loyalty:** Build mad loyalty with the ATL5D community and 🩸ARfluencers who are spending their hard-earned $ATL at your biz.</li>
+      <li><span class="emoji">🌟</span> **Livestream Spotlight:** Winners of challenges (both 🩸ARfluencers and partnering businesses) will be featured on our **ATL5D Livestream Event**. This is your chance to share your winning story, explain how the challenge benefited you, and flex your success to the whole city! It's pure, unadulterated exposure and recognition.</li>
+    </ul>
+  </div>
+
+  <div class="content-section" data-category="game">
+    <h2 class="section-title">Your Quest Begins: Snag the AR Effects! 🗺️📲</h2>
+    <p class="section-description">
+      Ready to dive into the ATL5D Dimension? Finding our AR effects is easier than finding good vibes in Atlanta! ✨
+    </p>
+    <ul class="key-points">
+      <li><span class="emoji">🔗</span> **Bio Link Magic:** All official ATL5D AR effects are linked directly in our TikTok bio on <a href="https://tiktok.com/@ATL5D" target="_blank" style="color:#E50914; text-decoration:none;">@ATL5D</a>. Just tap the link!</li>
+      <li><span class="emoji"> walkthrough:** We'll also have quick demo videos and walkthroughs pinned on our TikTok and linked here to show you exactly how to use the effects and slay your Reels. No cap, it's super easy!</li>
+    </ul>
+  </div>
+
+  <div class="content-section" data-category="atl5d">
+    <h2 class="section-title">🅰️TL5D | The Vibe Check! 🔥</h2>
+    <p class="section-description">
+      Catch the latest and greatest ATL5D reels, game highlights, and partner spotlights! This is where the magic lives, on repeat.
+    </p>
     <div class="shorts-grid">
       <div class="short-embed">
         <div class="short-poster" style="background: url('https://i.ytimg.com/vi/vCqHxobz48w/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/vCqHxobz48w?autoplay=0&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/vCqHxobz48w?controls=0&showinfo=0&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
         <div class="short-poster" style="background: url('https://i.ytimg.com/vi/wYqO0GJz6Kg/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/wYqO0GJz6Kg?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wYqO0GJz6Kg?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
         <div class="short-poster" style="background: url('https://i.ytimg.com/vi/FctrsvZLuLU/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/FctrsvZLuLU?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/FctrsvZLuLU?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-    </div>
+      </div>
   </div>
 
-  <!-- Game Shorts Section -->
   <div class="content-section" data-category="game">
-    <h2 class="section-title">🎮 GAMES</h2>
+    <h2 class="section-title">🎮 Next-Level Gaming Vibes</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/vCqHxobz48w/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_GAME1/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/Sj3kiUtfaw8?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_GAME1?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_GAME2/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_2?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_GAME2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-      <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+3') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/SHORT_ID_3?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
-    </div>
   </div>
 
-  <!-- Music Shorts Section -->
   <div class="content-section" data-category="music">
-    <h2 class="section-title">🎵 ATL MUSIK</h2>
+    <h2 class="section-title">🎵 ATL MUSIK: Drop the Beat!</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_MUSIC1/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/hFer3YIEHo8?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_MUSIC1?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_MUSIC2/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/O8SWja0CPxY?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_MUSIC2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-    </div>
+      </div>
   </div>
 
-  <!-- Spiritual Shorts Section -->
   <div class="content-section" data-category="spiritual">
-    <h2 class="section-title">✨ SPIRITUAL</h2>
+    <h2 class="section-title">✨ Spiritual Glow-Up</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_SPIRITUAL1/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/04a2SjCCRuQ?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_SPIRITUAL1?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_SPIRITUAL2/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/QenZOWxJ8ZQ?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_SPIRITUAL2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-    </div>
+      </div>
   </div>
 
-  <!-- Comedy Shorts Section -->
   <div class="content-section" data-category="comedy">
-    <h2 class="section-title">😂 COMEDY</h2>
+    <h2 class="section-title">😂 LMAO Reels</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_COMEDY1/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/aW3IacKTpgo?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_COMEDY1?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_COMEDY2/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/Lw7hhemvt3o?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_COMEDY2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-    </div>
+      </div>
   </div>
 
-  <!-- Business Shorts Section -->
   <div class="content-section" data-category="biz">
-    <h2 class="section-title">🅱️IZ</h2>
+    <h2 class="section-title">🅱️IZ Hacks & Boss Moves</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+1') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_BIZ1/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/ReKj2vlFlRg?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_BIZ1?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+2') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/VIDEO_ID_BIZ2/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/yh1ru9LP6ks?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_BIZ2?controls=0&showinfo=0&rel=0" allowfullscreen></iframe>
       </div>
-    </div>
+      </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>© 2024 ATL5D | 🔑 Subscribe for Exclusive Content</p>
+    <p>© 2024 ATL5D | 🔑 Subscribe for Exclusive Content. Get your glow up on! ✨</p>
   </footer>
 
-  <!-- Filtering Script -->
   <script>
     document.querySelectorAll('.filter-button').forEach(button => {
       button.addEventListener('click', () => {
