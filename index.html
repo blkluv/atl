@@ -1,3 +1,22 @@
+Okay, this is a significant addition that requires careful integration into your existing HTML and styling. We'll add a new section for the subscription tiers and the associated content, ensuring it fits the new white background and border theme.
+
+Here's how to integrate the three-tier subscription boxes with the specified features:
+
+**Key Additions and Changes:**
+
+1.  **New HTML Section for Subscriptions:** A `<section>` element with the class `subscription-tiers` will be added.
+2.  **Subscription Tier Cards:** Each tier will be a `div` with class `subscription-card`, containing the tier name, description, features (using emojis as bullet points), pricing options, and a "Sign Up" button.
+3.  **Styling for Subscription Section:** New CSS will be added to style these cards, making them visually appealing and responsive, fitting the white/gold/red/black theme.
+    * Emphasis on gold for highlights.
+    * Clear pricing and feature lists.
+    * Responsive layout using Flexbox.
+4.  **Emoji Bullet Points:** The existing font family will support emojis.
+5.  **New Link in Navbar:** Added `https://lyrictor.atl5d.com` and `https://unite4.atl55.com` to the Navbar.
+6.  **Updated Button Links:** Changed the hero button links as per your request.
+
+**Here's the updated HTML and CSS:**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,28 +24,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATL5D | Livestream TV</title>
   <style>
-    /* Netflix-inspired dark theme */
+    /* Global styles for white background and border */
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #141414;
-      color: white;
+      background: #FFFFFF; /* White background */
+      color: #333333; /* Dark text for contrast */
       margin: 0;
       padding: 0;
       padding-top: 80px; /* Added for fixed navbar */
+      
+      /* Border styling */
+      border: 10px solid;
+      border-image: linear-gradient(to right, #000000, #FFD700, #E50914) 1; /* Black, Gold, Red */
+      border-image-slice: 1;
+      border-image-width: 10px;
     }
-    
-    /* Navbar - Updated for responsiveness */
+
+    /* Navbar - Updated for responsiveness and light theme */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 5%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+      background: #FFFFFF; /* White background for navbar */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 100;
       box-sizing: border-box;
+      border-bottom: 1px solid #E0E0E0; /* Light border at the bottom */
     }
     
     .logo {
@@ -41,7 +68,7 @@
     }
     
     .nav-links a {
-      color: white;
+      color: #333333; /* Dark text for links */
       text-decoration: none;
       font-weight: 500;
       white-space: nowrap;
@@ -53,7 +80,7 @@
     }
     
     .nav-links a:hover {
-      color: #E50914;
+      color: #E50914; /* Red hover color */
     }
     
     /* Hero Banner with YouTube Video */
@@ -83,13 +110,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0.8) 0%, transparent 100%); /* Light gradient */
+      color: #333333; /* Dark text for hero content */
     }
     
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 4px rgba(255,255,255,0.5); /* Light text shadow */
     }
     
     .hero-buttons {
@@ -99,19 +127,20 @@
     }
     
     .play-button {
-      background: white;
-      color: black;
+      background: #E50914; /* Red button */
+      color: white;
       border: none;
       padding: 10px 30px;
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Button shadow */
     }
     
     .play-button:hover {
-      background: #E50914;
-      color: white;
+      background: #FFD700; /* Gold hover */
+      color: #333333; /* Dark text on gold */
     }
     
     /* Filter Bar (Genre Selection) */
@@ -119,8 +148,8 @@
       display: flex;
       gap: 10px;
       padding: 15px 5%;
-      background: #141414;
-      border-bottom: 1px solid #333;
+      background: #F8F8F8; /* Light gray background for filter bar */
+      border-bottom: 1px solid #E0E0E0;
       position: sticky;
       top: 80px;
       z-index: 90;
@@ -133,8 +162,8 @@
     }
     
     .filter-button {
-      background: #333;
-      color: white;
+      background: #E0E0E0; /* Light gray button */
+      color: #333333; /* Dark text */
       border: none;
       padding: 8px 20px;
       border-radius: 20px;
@@ -145,7 +174,8 @@
     }
     
     .filter-button:hover, .filter-button.active {
-      background: #E50914;
+      background: #E50914; /* Red active/hover */
+      color: white;
     }
     
     /* YouTube Shorts Grid with Custom Thumbnails */
@@ -159,6 +189,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #333333; /* Dark text for titles */
     }
     
     .shorts-grid {
@@ -177,13 +208,15 @@
       overflow: hidden;
       flex-shrink: 0;
       position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Lighter shadow */
       transition: transform 0.3s;
       scroll-snap-align: start;
+      border: 1px solid #DDDDDD; /* Light border for embeds */
     }
     
     .short-embed:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Slightly stronger hover shadow */
     }
     
     .short-poster {
@@ -210,20 +243,154 @@
       transform: translate(-50%, -50%);
       font-size: 2rem;
       z-index: 1;
-      color: white;
+      color: white; /* White play icon */
       text-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
+    /* Subscription Tiers Section */
+    .subscription-tiers {
+        padding: 50px 5%;
+        text-align: center;
+        background: #F0F0F0; /* Slightly darker light gray for this section */
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    .subscription-tiers h2 {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        margin-bottom: 40px;
+        color: #333333;
+    }
+
+    .tier-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .subscription-card {
+        background: #FFFFFF;
+        border: 2px solid #E0E0E0;
+        border-radius: 12px;
+        padding: 30px;
+        flex: 1 1 300px; /* Allows cards to grow/shrink, with a base of 300px */
+        max-width: 380px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .subscription-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .subscription-card.premium {
+        border-color: #FFD700; /* Gold border for premium tier */
+        box-shadow: 0 8px 16px rgba(255,215,0,0.3); /* Gold shadow */
+    }
+
+    .subscription-card h3 {
+        font-size: 1.8rem;
+        color: #E50914; /* Red for tier titles */
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .subscription-card .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #000000; /* Black for price */
+        margin-bottom: 10px;
+    }
+     .subscription-card .price small {
+        font-size: 0.8em;
+        font-weight: normal;
+        color: #555555;
+     }
+
+    .subscription-card p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        color: #555555;
+    }
+
+    .subscription-card ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 30px;
+        flex-grow: 1; /* Makes feature list take available space */
+    }
+
+    .subscription-card ul li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: #444444;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .subscription-card ul li .emoji {
+        font-size: 1.2em;
+        line-height: 1;
+    }
+
+    .subscription-card .sign-up-button {
+        display: inline-block;
+        background: #E50914; /* Red button */
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        width: 100%;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .subscription-card .sign-up-button:hover {
+        background: #FFD700; /* Gold hover */
+        color: #333333;
+    }
     
+    .contact-info {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #666;
+    }
+
     /* Footer */
     .footer {
       padding: 30px 5%;
       text-align: center;
-      background: #141414;
-      border-top: 1px solid #333;
+      background: #F8F8F8; /* Light gray footer */
+      border-top: 1px solid #E0E0E0;
+      color: #555555; /* Darker gray text for footer */
     }
 
     /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .tier-cards-container {
+            gap: 20px;
+        }
+        .subscription-card {
+            flex: 1 1 45%; /* Two cards per row on medium screens */
+            max-width: none;
+        }
+    }
+
     @media (max-width: 768px) {
+      body {
+        border-image-width: 5px; /* Thinner border on smaller screens */
+      }
       .navbar {
         padding: 15px 20px;
       }
@@ -240,9 +407,20 @@
       .content-section {
         margin: 30px 20px;
       }
+      .subscription-card {
+        flex: 1 1 100%; /* Single column on small screens */
+        max-width: 400px; /* Max width for single column card */
+      }
+       .tier-cards-container {
+            flex-direction: column;
+            align-items: center; /* Center cards in column layout */
+        }
     }
     
     @media (max-width: 480px) {
+      body {
+        border-image-width: 3px; /* Even thinner border on mobile */
+      }
       .navbar {
         padding: 12px 15px;
       }
@@ -270,19 +448,18 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <img src="images/atlien_logo.png" alt="ATL5D Logo" class="logo">
     <div class="nav-links">
       <a href="https://atl5d.com">🅰️</a>
       <a href="https://wallo.atl5d.com">W🅰️LLO.</a>
       <a href="https://tree.atl5d.com">🌴 TREE.</a>
+      <a href="https://lyrictor.atl5d.com">🎶 LYRICTOR.</a>
+      <a href="https://unite4.atl5d.com">4️⃣ UNITE4.</a>
     </div>
   </nav>
 
-  <!-- Hero Banner with Optimized YouTube Video -->
   <section class="hero">
-    <!-- YouTube placeholder with poster image -->
     <div class="video-placeholder" style="background: url('https://i.imgur.com/lDbYyeu.png') center/cover;">
       <iframe 
         class="hero-video" 
@@ -297,14 +474,12 @@
       <h1>🅰️TL5D</h1>
       <p>🔥 ATL’s own 🅰️FLIX — nonstop 24/7 live shows with SMS hype. Fans flex by buying, selling, and swapping 11-sec reels in the 🅰️conomy, tipping $ATL to launch their own livestream show!</p>
       <div class="hero-buttons">
-        <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 SUBSCRIBE TO 🅰️VERSE</a>
-        <a href="https://www.youtube.com/@atlverse?sub_confirmation=1" target="_blank" class="play-button">🔥 CREATE A W🅰️LLO</a>
+        <a href="https://www.youtube.com/@atlflix?sub_confirmation=1" target="_blank" class="play-button">🔥 SUBSCRIBE TO 🅰️TLFLIX</a>
+        <a href="https://wallo.atl5d.com" target="_blank" class="play-button">🔥 CREATE A $ATL W🅰️LLO</a>
       </div>
     </div>
   </section>
 
-  <!-- Rest of your HTML content remains the same -->
-  <!-- Filter Bar (Genre Selection) -->
   <div class="filter-bar">
     <button class="filter-button active" data-filter="all">All</button>
     <button class="filter-button" data-filter="atl5d">🅰️TL5D</button>
@@ -315,7 +490,6 @@
     <button class="filter-button" data-filter="biz">🅱️IZ</button>
   </div>
 
-  <!-- ATL5D Shorts Section -->
   <div class="content-section" data-category="atl5d">
     <h2 class="section-title">🅰️TL5D</h2>
     <div class="shorts-grid">
@@ -337,7 +511,6 @@
     </div>
   </div>
 
-  <!-- Game Shorts Section -->
   <div class="content-section" data-category="game">
     <h2 class="section-title">🎮 GAMES</h2>
     <div class="shorts-grid">
@@ -359,7 +532,6 @@
     </div>
   </div>
 
-  <!-- Music Shorts Section -->
   <div class="content-section" data-category="music">
     <h2 class="section-title">🎵 ATL MUSIK</h2>
     <div class="shorts-grid">
@@ -376,7 +548,6 @@
     </div>
   </div>
 
-  <!-- Spiritual Shorts Section -->
   <div class="content-section" data-category="spiritual">
     <h2 class="section-title">✨ SPIRITUAL</h2>
     <div class="shorts-grid">
@@ -393,7 +564,6 @@
     </div>
   </div>
 
-  <!-- Comedy Shorts Section -->
   <div class="content-section" data-category="comedy">
     <h2 class="section-title">😂 COMEDY</h2>
     <div class="shorts-grid">
@@ -410,7 +580,6 @@
     </div>
   </div>
 
-  <!-- Business Shorts Section -->
   <div class="content-section" data-category="biz">
     <h2 class="section-title">🅱️IZ</h2>
     <div class="shorts-grid">
@@ -427,12 +596,66 @@
     </div>
   </div>
 
-  <!-- Footer -->
+  <section class="subscription-tiers">
+    <h2 class="section-title">🚀 Amplify Your ATL Business with ATL5D</h2>
+    <p>Unlock hyper-local reel marketing on TikTok and YouTube, with dedicated ad campaigns and cutting-edge AR effects!</p>
+    <div class="tier-cards-container">
+      
+      <div class="subscription-card">
+        <h3>✨ Spark Starter</h3>
+        <p>Get started with essential ATL5D reel marketing.</p>
+        <div class="price">
+            Unfunded
+            <small><br><i>(Recommended: $250/reel)</i></small>
+        </div>
+        <ul>
+          <li><span class="emoji">🎬</span> 1x Professionally produced 11-sec reel per month</li>
+          <li><span class="emoji">📈</span> Basic performance analytics (TikTok/YouTube)</li>
+          <li><span class="emoji">📣</span> Organic promotion on ATL5D.com homepage</li>
+          <li><span class="emoji">📝</span> Basic script consultation</li>
+        </ul>
+        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
+        <p class="contact-info"><i>(For unfunded businesses, we offer direct reel creation services. Contact Wizard of Hahz via Telegram to discuss your specific needs and pricing structure based on time to create.)</i></p>
+      </div>
+
+      <div class="subscription-card">
+        <h3>⚡️ Growth Catalyst</h3>
+        <p>Boost your reach with dedicated paid ad campaigns.</p>
+        <div class="price">Funded</div>
+        <ul>
+          <li><span class="emoji">🚀</span> 2x Professionally produced 11-sec reels per month</li>
+          <li><span class="emoji">📊</span> Advanced performance analytics & strategy review</li>
+          <li><span class="emoji">🔥</span> **50% of your budget allocated to paid ad campaigns** on TikTok & YouTube</li>
+          <li><span class="emoji">🏠</span> Prominent placement on ATL5D.com homepage</li>
+          <li><span class="emoji">💡</span> Full script & content strategy consultation</li>
+        </ul>
+        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
+        <p class="contact-info"><i>(For funded businesses. Contact Wizard of Hahz via Telegram to discuss your specific needs and budget allocation for paid campaigns.)</i></p>
+      </div>
+
+      <div class="subscription-card premium">
+        <h3>🌟 Visionary Leader</h3>
+        <p>Dominate the market with custom AR effects & extensive campaigns.</p>
+        <div class="price">Funded</div>
+        <ul>
+          <li><span class="emoji">✨</span> 4x Professionally produced 11-sec reels per month</li>
+          <li><span class="emoji">📈</span> Comprehensive analytics, competitor analysis & monthly reporting</li>
+          <li><span class="emoji">💰</span> **50% of your budget allocated to *premium* paid ad campaigns**</li>
+          <li><span class="emoji">👑</span> **Custom-branded TikTok AR effect emojis** for UGC</li>
+          <li><span class="emoji">🌐</span> Exclusive homepage spotlight & cross-promotion</li>
+          <li><span class="emoji">🤝</span> Dedicated account manager & priority support</li>
+        </ul>
+        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
+        <p class="contact-info"><i>(For funded businesses. Contact Wizard of Hahz via Telegram to discuss your specific needs and budget allocation for paid campaigns.)</i></p>
+      </div>
+
+    </div>
+  </section>
+
   <footer class="footer">
     <p>© 2024 ATL5D | 🔑 Subscribe for Exclusive Content</p>
   </footer>
 
-  <!-- Filtering Script -->
   <script>
     document.querySelectorAll('.filter-button').forEach(button => {
       button.addEventListener('click', () => {
@@ -479,3 +702,4 @@
   </script>
 </body>
 </html>
+```
