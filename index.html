@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATL5D | 🔮 Your Portal to Atlanta's Digital Magic</title>
+  <title>ATL5D | Livestream TV</title>
   <style>
     /* Global styles for white background and border */
     body {
@@ -38,7 +38,7 @@
     }
     
     .logo {
-      height: 40px; /* Clean AF */
+      height: 40px;
       width: auto;
     }
     
@@ -57,17 +57,17 @@
       text-overflow: ellipsis;
       max-width: 100px;
       font-size: 16px;
-      transition: all 0.3s; /* Smooth transitions, no cap */
+      transition: all 0.3s;
     }
     
     .nav-links a:hover {
       color: #E50914; /* Red hover color */
     }
     
-    /* Hero Banner with YouTube Video - The Grand Entrance */
+    /* Hero Banner with YouTube Video */
     .hero {
       position: relative;
-      height: 80vh; /* Make it pop */
+      height: 80vh;
       overflow: hidden;
     }
     
@@ -85,7 +85,7 @@
     
     .hero-content {
       position: relative;
-      max-width: 700px; /* Give it room to breathe */
+      max-width: 600px;
       padding: 0 5%;
       height: 100%;
       display: flex;
@@ -96,14 +96,13 @@
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem); /* Big, bold, and in charge */
+      font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
       text-shadow: 2px 2px 4px rgba(255,255,255,0.5); /* Light text shadow */
     }
     
     .hero-buttons {
       display: flex;
-      flex-wrap: wrap; /* For mobile flexin' */
       gap: 15px;
       margin: 20px 0;
     }
@@ -112,7 +111,7 @@
       background: #E50914; /* Red button */
       color: white;
       border: none;
-      padding: 12px 35px; /* Thicker for impact */
+      padding: 10px 30px;
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
@@ -125,7 +124,7 @@
       color: #333333; /* Dark text on gold */
     }
     
-    /* Filter Bar (Genre Selection) - Keeping the vibes organized */
+    /* Filter Bar (Genre Selection) */
     .filter-bar {
       display: flex;
       gap: 10px;
@@ -148,7 +147,7 @@
       color: #333333; /* Dark text */
       border: none;
       padding: 8px 20px;
-      border-radius: 20px; /* Smooth as butter */
+      border-radius: 20px;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s;
@@ -160,21 +159,20 @@
       color: white;
     }
     
-    /* Content Sections - Where the magic happens */
+    /* YouTube Shorts Grid with Custom Thumbnails */
     .content-section {
       margin: 30px 5%;
     }
     
     .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem); /* Section titles that hit different */
-      margin-bottom: 25px; /* More space to breathe */
+      font-size: 1.5rem;
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
       color: #333333; /* Dark text for titles */
     }
-
-    /* YouTube Shorts Grid with Custom Thumbnails - The 🔥 Reels */
+    
     .shorts-grid {
       display: flex;
       overflow-x: auto;
@@ -182,15 +180,10 @@
       padding-bottom: 20px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Hide scrollbar for Firefox */
     }
     
-    .shorts-grid::-webkit-scrollbar {
-      display: none; /* Hide scrollbar for Chrome/Safari */
-    }
-
     .short-embed {
-      min-width: 180px; /* Keep it tight */
+      min-width: 180px;
       height: 320px;
       border-radius: 8px;
       overflow: hidden;
@@ -229,7 +222,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.5rem; /* Bigger play icon */
+      font-size: 2rem;
       z-index: 1;
       color: white; /* White play icon */
       text-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -244,10 +237,18 @@
         border-bottom: 1px solid #E0E0E0;
     }
 
-    .subscription-tiers h2 {
+    .subscription-tiers .main-title { /* Changed to main-title for distinction */
         font-size: clamp(2rem, 4vw, 2.5rem);
-        margin-bottom: 40px;
+        margin-bottom: 10px; /* Reduced margin */
         color: #333333;
+    }
+    .subscription-tiers .sub-description { /* Added for the intro paragraph */
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .tier-cards-container {
@@ -269,6 +270,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        text-align: left; /* Align text left within cards */
     }
 
     .subscription-card:hover {
@@ -276,8 +278,8 @@
         box-shadow: 0 12px 24px rgba(0,0,0,0.15);
     }
 
-    .subscription-card.premium {
-        border-color: #FFD700; /* Gold border for premium tier */
+    .subscription-card.highlight { /* Renamed from premium to highlight for broader use */
+        border-color: #FFD700; /* Gold border for highlighted tier */
         box-shadow: 0 8px 16px rgba(255,215,0,0.3); /* Gold shadow */
     }
 
@@ -286,6 +288,13 @@
         color: #E50914; /* Red for tier titles */
         margin-top: 0;
         margin-bottom: 15px;
+        text-align: center; /* Center tier titles */
+    }
+    .subscription-card .tier-description { /* Added for card specific description */
+        font-size: 0.95rem;
+        color: #555555;
+        margin-bottom: 20px;
+        text-align: center; /* Center description */
     }
 
     .subscription-card .price {
@@ -293,40 +302,37 @@
         font-weight: bold;
         color: #000000; /* Black for price */
         margin-bottom: 10px;
+        text-align: center; /* Center price */
     }
      .subscription-card .price small {
+        display: block; /* Make sure small text goes to a new line */
         font-size: 0.8em;
         font-weight: normal;
         color: #555555;
+        margin-top: 5px;
      }
-
-    .subscription-card p {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 20px;
-        color: #555555;
-    }
 
     .subscription-card ul {
         list-style: none;
         padding: 0;
-        text-align: left;
+        text-align: left; /* Keep feature list left-aligned */
         margin-bottom: 30px;
         flex-grow: 1; /* Makes feature list take available space */
     }
 
     .subscription-card ul li {
         margin-bottom: 10px;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: #444444;
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* Align text to top if multiple lines */
         gap: 8px;
     }
 
     .subscription-card ul li .emoji {
         font-size: 1.2em;
-        line-height: 1;
+        line-height: 1.2; /* Adjust line height for emoji */
+        flex-shrink: 0; /* Prevent emoji from shrinking */
     }
 
     .subscription-card .sign-up-button {
@@ -342,6 +348,7 @@
         text-decoration: none;
         width: 100%;
         box-sizing: border-box; /* Include padding in width */
+        text-align: center;
     }
 
     .subscription-card .sign-up-button:hover {
@@ -353,6 +360,7 @@
         margin-top: 20px;
         font-size: 0.9em;
         color: #666;
+        text-align: center; /* Center contact info */
     }
 
     /* Footer */
@@ -362,6 +370,14 @@
       background: #F8F8F8; /* Light gray footer */
       border-top: 1px solid #E0E0E0;
       color: #555555; /* Darker gray text for footer */
+      display: flex; /* Use flexbox for footer content */
+      flex-direction: column; /* Stack content vertically */
+      align-items: center; /* Center items horizontally */
+    }
+
+    .footer .polar-embed {
+      margin-top: 20px; /* Space above the Polar checkout button */
+      margin-bottom: 20px; /* Space below the Polar checkout button */
     }
 
     /* Responsive adjustments */
@@ -417,13 +433,9 @@
         height: 30px;
       }
       
-      .nav-links {
-        gap: 10px;
-      }
-
       .nav-links a {
-        max-width: 50px;
-        font-size: 11px;
+        max-width: 60px;
+        font-size: 12px;
         padding: 5px;
       }
       
@@ -433,19 +445,8 @@
       }
       
       .short-embed {
-        min-width: 150px;
-        height: 260px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-      }
-      .hero p {
-        font-size: 0.9rem;
-      }
-      .play-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        min-width: 160px;
+        height: 280px;
       }
     }
   </style>
@@ -456,9 +457,10 @@
     <div class="nav-links">
       <a href="https://atl5d.com">🅰️</a>
       <a href="https://wallo.atl5d.com">W🅰️LLO.</a>
-      <a href="https://tree.atl5d.com">🌴 TREE.</a>
+      <a href="https://tree.atl55.com">🌴 TREE.</a>
       <a href="https://lyrictor.atl5d.com">🎶 LYRICTOR.</a>
       <a href="https://unite4.atl5d.com">4️⃣ UNITE4.</a>
+      <a href="https://buy.polar.sh/polar_cl_vTbLAVkFqZk7EX7W0ERRKwfyGvHHkJWjgJxgH1CMhYl" data-polar-checkout data-polar-checkout-theme="dark">✨ SUBSCRIBE</a>
     </div>
   </nav>
 
@@ -475,7 +477,7 @@
     </div>
     <div class="hero-content">
       <h1>🅰️TL5D</h1>
-      <p>🔥 ATL's own 🅰️FLIX — nonstop 24/7 live shows with SMS hype. Fans flex by buying, selling, and swapping 11-sec reels in the 🅰️conomy, tipping $ATL to launch their own livestream show!</p>
+      <p>🔥 ATL’s own 🅰️FLIX — nonstop 24/7 live shows with SMS hype. Fans flex by buying, selling, and swapping 11-sec reels in the 🅰️conomy, tipping $ATL to launch their own livestream show!</p>
       <div class="hero-buttons">
         <a href="https://www.youtube.com/@atlflix?sub_confirmation=1" target="_blank" class="play-button">🔥 SUBSCRIBE TO 🅰️TLFLIX</a>
         <a href="https://wallo.atl5d.com" target="_blank" class="play-button">🔥 CREATE A $ATL W🅰️LLO</a>
@@ -518,19 +520,19 @@
     <h2 class="section-title">🎮 GAMES</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/Sj3kiUtfaw8/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/vCqHxobz48w/maxresdefault.jpg') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/Sj3kiUtfaw8?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_2?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/9P6rdqiybaw/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+3') center/cover;"></div>
         <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/9P6rdqiybaw?autoplay=0&mute=1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SHORT_ID_3?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -539,19 +541,14 @@
     <h2 class="section-title">🎵 ATL MUSIK</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/hFer3YIEHo8/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/hFer3YIEHo8?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/O8SWja0CPxY/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/O8SWja0CPxY?autoplay=0&mute=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -560,12 +557,12 @@
     <h2 class="section-title">✨ SPIRITUAL</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/04a2SjCCRuQ/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/04a2SjCCRuQ?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/QenZOWxJ8ZQ/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/QenZOWxJ8ZQ?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
@@ -576,12 +573,12 @@
     <h2 class="section-title">😂 COMEDY</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/aW3IacKTpgo/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/aW3IacKTpgo?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/Lw7hhemvt3o/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/Lw7hhemvt3o?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
@@ -592,12 +589,12 @@
     <h2 class="section-title">🅱️IZ</h2>
     <div class="shorts-grid">
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/ReKj2vlFlRg/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://i.imgur.com/fvjCvlx.jpeg?text=BIZ+SHORT+1') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/ReKj2vlFlRg?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
       <div class="short-embed">
-        <div class="short-poster" style="background: url('https://i.ytimg.com/vi/yh1ru9LP6ks/maxresdefault.jpg') center/cover;"></div>
+        <div class="short-poster" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+2') center/cover;"></div>
         <div class="play-icon">▶️</div>
         <iframe src="https://www.youtube.com/embed/yh1ru9LP6ks?autoplay=0&mute=1" allowfullscreen></iframe>
       </div>
@@ -605,74 +602,45 @@
   </div>
 
   <section class="subscription-tiers">
-    <h2 class="section-title">🚀 Amplify Your ATL Business with ATL5D</h2>
-    <p>Unlock hyper-local reel marketing on TikTok and YouTube, with dedicated ad campaigns and cutting-edge AR effects!</p>
+    <h2 class="main-title">Propel Your Brand in Atlanta: ATL5D Reel Marketing</h2>
+    <p class="sub-description">Unleash hyper-local engagement on TikTok and YouTube with bespoke short-form video strategies, targeted ad campaigns, and innovative AR effects designed for impact.</p>
     <div class="tier-cards-container">
       
       <div class="subscription-card">
-        <h3>✨ College Park 5D</h3>
-        <p>Get started with essential ATL5D reel marketing.</p>
+        <h3>✨ Consultation for Custom Solutions</h3>
+        <p class="tier-description">Ideal for businesses seeking bespoke reel marketing and direct collaboration.</p>
         <div class="price">
             Unfunded
-            <small><br><i>(Recommended: $404/reel)</i></small>
+            <small><i>(Recommended: $404/reel)</i></small>
         </div>
         <ul>
-          <li><span class="emoji">🎬</span> 1x 🅰️TL5D produced 11-sec reel ad per month</li>
-          <li><span class="emoji">🔥</span> $100 applied to boost (TikTok @ATL5D) reel generating 7K-77K views</li>
-          <li><span class="emoji">📈</span> Basic performance analytics (TikTok @ATL5D)</li>
-          <li><span class="emoji">📍</span> TikTok @ATL5D reel pinned to Atlanta business address</li>
-          <li><span class="emoji">📣</span> @ATL5D TikTok (post +story)/Twitter/Discord/Telegram post, @ATLFLIX YouTube post</li>
-          <li><span class="emoji">📝</span> Monthly (TikTok @ATL5D) reel analytics emailed monthly</li>
+          <li><span class="emoji">🎬</span> 1x Professionally produced 11-sec reel ad per month</li>
+          <li><span class="emoji">🔥</span> Includes a $100 ad spend on TikTok (@ATL5D) for 7K-77K impressions</li>
+          <li><span class="emoji">📊</span> Basic performance analytics (TikTok @ATL5D)</li>
+          <li><span class="emoji">📍</span> Reel pinned to your business address on TikTok @ATL5D profile</li>
+          <li><span class="emoji">📣</span> Cross-promotion: @ATL5D TikTok (post + story), Twitter, Discord, Telegram, & @ATLFLIX YouTube</li>
+          <li><span class="emoji">📧</span> Monthly performance report delivered via email</li>
         </ul>
-        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
-        <p class="contact-info"><i>(For unfunded businesses, we offer direct reel creation services. Contact Wizard of Hahz via Telegram to discuss your specific needs and pricing structure based on time to create.)</i></p>
+        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect for Custom Quote</a>
+        <p class="contact-info"><i>For unfunded businesses, we offer direct reel creation services. Please connect via Telegram to discuss your specific needs and a tailored pricing structure based on project scope and deliverables.</i></p>
       </div>
 
-      <div class="subscription-card">
-        <h3>⚡️ Mid-Town 5D</h3>
-        <p>Boost your reach with dedicated paid ad campaigns.</p>
-        <div class="price">
-            Unfunded
-            <small><br><i>(Recommended: $5555/reel)</i></small>
-        <div class="price">Funded</div>
-        <ul>
-          <li><span class="emoji">🚀</span> 5x HQ produced 11-sec reels per month ATL residents can resell</li>
-          <li><span class="emoji">📊</span> Advanced performance analytics & strategy review</li>
-          <li><span class="emoji">🔥</span> $1885.71 ($44 a day) applied to boost (TikTok @ATL5D) reel generating 91K-1M views</li>
-          <li><span class="emoji">🏠</span> Prominent placement on ATL5D.com homepage with monthly analytics</li>
-          <li><span class="emoji">💡</span> Wizard of Hahz & content strategy consultation</li>
-        </ul>
-        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
-        <p class="contact-info"><i>(For funded businesses. Contact Wizard of Hahz via Telegram to discuss your specific needs and budget allocation for paid campaigns.)</i></p>
-      </div>
+    </div>
 
-      <div class="subscription-card premium">
-        <h3>👑 BuckHead 5D</h3>
-        <p>Dominate the ATL5D market with custom AR effects & extensive Atlanta residents UGC campaigns.</p>
-                <div class="price">
-            Unfunded
-            <small><br><i>(Recommended: $11,111/reel)</i></small>
-        <div class="price">Funded</div>
-        <ul>
-          <li><span class="emoji">✨</span> 11x Professionally produced 11-sec reels per month</li>
-          <li><span class="emoji">🚀</span> 11x branded AR effects per month ATL can use to create UGC for your business</li>
-          <li><span class="emoji">🔥</span> $4842.85 ($113 a day) applied to boost (TikTok @ATL5D) reel generating 235K-2.4M views</li>
-          <li><span class="emoji">📈</span> Comprehensive analytics, competitor analysis & monthly reporting</li>
-          <li><span class="emoji">💰</span> 50% of your budget allocated to TikTok, YouTube and ATL residents paid ad campaigns</li>
-          <li><span class="emoji">👑</span> Custom-branded TikTok AR effect emojis for UGC</li>
-          <li><span class="emoji">🌐</span> Exclusive pinned top 5 homepage spotlight & cross-promotion</li>
-          <li><span class="emoji">🤝</span> Wizard of Hahz priority support</li>
-        </ul>
-        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect on Telegram</a>
-        <p class="contact-info"><i>(For funded businesses. Contact Wizard of Hahz via Telegram to discuss your specific needs and budget allocation for paid campaigns.)</i></p>
-      </div>
-
+    <div class="contact-info" style="margin-top: 50px;">
+        <p>For inquiries regarding funded campaigns or bespoke solutions, please contact us directly:</p>
+        <p><strong><a href="https://t.me/hahznft" target="_blank" style="color: #E50914; text-decoration: none; font-weight: bold;">Connect with Wizard of Hahz on Telegram</a></strong></p>
     </div>
   </section>
 
   <footer class="footer">
     <p>© 2024 ATL5D | 🔑 Subscribe for ATL5D Content✨</p>
+    <div class="polar-embed">
+      <a href="https://buy.polar.sh/polar_cl_vTbLAVkFqZk7EX7W0ERRKwfyGvHHkJWjgJxgH1CMhYl" data-polar-checkout data-polar-checkout-theme="dark">Purchase ATL5D Subscription</a>
+    </div>
   </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
 
   <script>
     document.querySelectorAll('.filter-button').forEach(button => {
