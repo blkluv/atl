@@ -370,14 +370,16 @@
       background: #F8F8F8; /* Light gray footer */
       border-top: 1px solid #E0E0E0;
       color: #555555; /* Darker gray text for footer */
-      display: flex; /* Use flexbox for footer content */
-      flex-direction: column; /* Stack content vertically */
-      align-items: center; /* Center items horizontally */
+      /* No longer using flexbox for embed, just text */
+      /* display: flex; */ 
+      /* flex-direction: column; */
+      /* align-items: center; */
     }
 
     .footer .polar-embed {
-      margin-top: 20px; /* Space above the Polar checkout button */
-      margin-bottom: 20px; /* Space below the Polar checkout button */
+      /* This rule is now effectively unused since the embed is not in the footer */
+      margin-top: 20px; 
+      margin-bottom: 20px; 
     }
 
     /* Responsive adjustments */
@@ -621,23 +623,20 @@
           <li><span class="emoji">📣</span> Cross-promotion: @ATL5D TikTok (post + story), Twitter, Discord, Telegram, & @ATLFLIX YouTube</li>
           <li><span class="emoji">📧</span> Monthly performance report delivered via email</li>
         </ul>
-        <a href="https://t.me/hahznft" target="_blank" class="sign-up-button">Connect for Custom Quote</a>
-        <p class="contact-info"><i>For unfunded businesses, we offer direct reel creation services. Please connect via Telegram to discuss your specific needs and a tailored pricing structure based on project scope and deliverables.</i></p>
+        <a href="https://buy.polar.sh/polar_cl_vTbLAVkFqZk7EX7W0ERRKwfyGvHHkJWjgJxgH1CMhYl" data-polar-checkout data-polar-checkout-theme="dark" class="sign-up-button">SUBSCRIBE</a>
+        <p class="contact-info"><i>For UNfunded businesses only. </i></p>
       </div>
 
     </div>
 
     <div class="contact-info" style="margin-top: 50px;">
-        <p>For inquiries regarding funded campaigns or bespoke solutions, please contact us directly:</p>
-        <p><strong><a href="https://t.me/hahznft" target="_blank" style="color: #E50914; text-decoration: none; font-weight: bold;">Connect with Wizard of Hahz on Telegram</a></strong></p>
+        <p>For funded businesses, connect with the Wizard of Hahz to discuss your specific needs and a tailored pricing structure based on project scope and deliverables. Inquiries regarding funded campaigns or bespoke solutions, please contact us directly:</p>
+        <p><strong><a href="https://t.me/hahznft" target="_blank" style="color: #E50914; text-decoration: none; font-weight: bold;">Portal to the Wizard of Hahz</a></strong></p>
     </div>
   </section>
 
   <footer class="footer">
     <p>© 2024 ATL5D | 🔑 Subscribe for ATL5D Content✨</p>
-    <div class="polar-embed">
-      <a href="https://buy.polar.sh/polar_cl_vTbLAVkFqZk7EX7W0ERRKwfyGvHHkJWjgJxgH1CMhYl" data-polar-checkout data-polar-checkout-theme="dark">Purchase ATL5D Subscription</a>
-    </div>
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
