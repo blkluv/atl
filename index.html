@@ -194,6 +194,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
       scroll-snap-align: start;
       border: 1px solid #DDDDDD; /* Light border for embeds */
+      cursor: pointer;
     }
 
     .short-embed:hover {
@@ -208,7 +209,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      cursor: pointer; /* Indicate it's clickable */
     }
 
     .short-embed iframe {
@@ -221,10 +221,12 @@
       z-index: 2;
       opacity: 0; /* Initially hidden */
       transition: opacity 0.3s;
+      pointer-events: none; /* Don't capture clicks when transparent */
     }
 
     .short-embed.playing iframe {
       opacity: 1;
+      pointer-events: auto; /* Allow interaction once visible */
     }
 
     .play-icon {
@@ -236,7 +238,6 @@
       z-index: 1;
       color: white; /* White play icon */
       text-shadow: 0 0 10px rgba(0,0,0,0.5);
-      cursor: pointer; /* Indicate it's clickable */
     }
 
     /* Cal.com Embed - UPDATED GEN Z STYLE */
@@ -588,7 +589,7 @@
   <div class="content-section" data-category="game">
     <h2 class="section-title">🎮 GAMES</h2>
     <div class="shorts-grid">
-      </div>
+       </div>
   </div>
 
   <div class="content-section" data-category="music">
@@ -682,6 +683,7 @@
   </script>
 
   <script>
+    // Filter button logic
     document.querySelectorAll('.filter-button').forEach(button => {
       button.addEventListener('click', () => {
         document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
@@ -694,21 +696,15 @@
       });
     });
 
+    // --- FIXED SHORT REELS SCRIPT ---
     document.querySelectorAll('.short-embed').forEach(short => {
-      const poster = short.querySelector('.short-poster');
-      const playIcon = short.querySelector('.play-icon');
       const iframe = short.querySelector('iframe');
       const dataSrc = iframe.getAttribute('data-src');
 
       short.addEventListener('click', () => {
         if (!short.classList.contains('playing')) {
-          iframe.src = dataSrc; // Load video
-          short.classList.add('playing'); // Show iframe via CSS transition
-          // Hide poster and play icon AFTER the video starts to fade in
-          setTimeout(() => {
-            poster.style.display = 'none';
-            playIcon.style.display = 'none';
-          }, 300); // Match transition duration
+          short.classList.add('playing');
+          iframe.src = dataSrc;
         }
       });
     });
