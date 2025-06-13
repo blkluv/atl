@@ -239,37 +239,37 @@
       cursor: pointer; /* Indicate it's clickable */
     }
 
-    /* Cal.com Embed */
+    /* Cal.com Embed - UPDATED GEN Z STYLE */
     .calcom-embed {
-      margin: 30px auto;
+      margin: 50px auto; /* Added more margin */
       max-width: 600px;
       padding: 20px;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #333;
+      border-radius: 12px; /* Smoother radius */
+      background-color: #111; /* Dark bg for the calendar iframe */
+      color: #fff;
       text-align: center;
-      /* Gen Z specific styling */
+      /* Gen Z board style */
       border: 4px solid #000;
-      box-shadow: 4px 4px #e50914; /* Red offset shadow */
+      box-shadow: 8px 8px 0 #E50914; /* Bolder red offset shadow */
       overflow: hidden; /* Important for responsive iframes */
     }
 
     .calcom-embed h2 {
-      color: #E50914;
-      margin-bottom: 15px;
+      color: #FFD700; /* Gold for highlight */
+      margin-bottom: 20px;
       font-size: 1.8rem;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
     .calcom-embed iframe {
       width: 100%;
-      height: 600px; /* Adjust height as needed */
+      height: 650px; /* Adjusted height */
       border: none;
       border-radius: 6px;
-      display: block; /* Ensures it takes full width */
-      margin: 0 auto; /* Center iframe */
+      display: block;
+      margin: 0 auto;
     }
 
     /* Subscription Promo (single card structure, styled like cal.com) */
@@ -278,7 +278,6 @@
       text-align: center;
       background: #F0F0F0; /* Slightly darker light gray for this section */
       border-top: 1px solid #E0E0E0;
-      border-bottom: 1px solid #E0E0E0;
     }
 
     .subscription-promo .promo-title { /* For the main section title */
@@ -303,21 +302,19 @@
         padding: 30px;
         margin: 0 auto; /* Center the single card */
         max-width: 380px; /* Max width for single card */
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08); /* Default light shadow */
         transition: transform 0.3s, box-shadow 0.3s;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         text-align: left; /* Align text left within cards */
-
         /* Apply Cal.com Gen Z style */
         border: 4px solid #000;
-        box-shadow: 4px 4px #e50914; /* Red offset shadow */
+        box-shadow: 8px 8px 0 #e50914; /* Bolder red offset shadow */
     }
 
     .subscription-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Slightly stronger hover shadow */
+        transform: translateY(-10px) rotate(1deg); /* Slight rotation on hover */
+        box-shadow: 12px 12px 0 #FFD700; /* Gold hover shadow */
     }
 
     .subscription-card h3 {
@@ -376,7 +373,7 @@
         display: inline-block;
         background: #E50914; /* Red button */
         color: white;
-        border: none;
+        border: 2px solid #000; /* Add border for style */
         padding: 12px 25px;
         border-radius: 6px;
         font-weight: bold;
@@ -400,26 +397,30 @@
         text-align: center; /* Center contact info */
     }
 
-    /* Footer */
+    /* Footer - UPDATED WITH WHITE BACKGROUND */
     .footer {
-      padding: 30px 5%;
-      background: #141414; /* Netflix-like dark background for footer */
-      color: #f8f8f8; /* Light text for footer */
+      padding: 40px 5%;
+      background: #FFFFFF; /* White background for footer */
+      color: #333333; /* Dark text for footer */
       box-sizing: border-box;
+      border-top: 1px solid #e0e0e0; /* Separator line */
     }
 
     .footer-columns {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       text-align: left; /* Align text left in columns */
+      max-width: 1200px; /* Constrain width */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .footer-column h4 {
-      color: #FFD700; /* Gold for column headers */
+      color: #E50914; /* Red for column headers */
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-size: 1.1rem;
       text-transform: uppercase;
     }
@@ -427,27 +428,31 @@
     .footer-column ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     .footer-column ul li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .footer-column ul li a {
-      color: #f8f8f8;
+      color: #333333; /* Dark text for links */
       text-decoration: none;
       transition: color 0.3s;
+      font-weight: 500;
     }
 
     .footer-column ul li a:hover {
-      color: #E50914;
+      color: #E50914; /* Red hover for links */
     }
 
     .footer-bottom {
       text-align: center;
       padding-top: 20px;
-      border-top: 1px solid #333; /* Darker border for separation */
+      border-top: 1px solid #e0e0e0; /* Light border for separation */
       font-size: 0.9rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     /* Responsive adjustments */
@@ -481,6 +486,9 @@
         grid-template-columns: 1fr; /* Single column on small screens */
         text-align: center; /* Center footer columns on small screens */
       }
+      .footer-column ul {
+          margin-bottom: 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -511,15 +519,14 @@
         height: 280px;
       }
       .calcom-embed iframe {
-        height: 450px; /* Adjust for smaller mobile screens */
+        height: 550px; /* Adjust for smaller mobile screens */
       }
     }
   </style>
 </head>
 <body>
   <nav class="navbar">
-    <img src="images/atlien_logo.png" alt="ATL5D Logo" class="logo">
-    <div class="nav-links">
+    <img src="https://i.imgur.com/your-logo.png" alt="ATL5D Logo" class="logo"> <div class="nav-links">
       <a href="https://atl5d.com">🅰️</a>
       <a href="https://wallo.atl5d.com">W🅰️LLO.</a>
       <a href="https://buy.polar.sh/polar_cl_vTbLAVkFqZk7EX7W0ERRKwfyGvHHkJWjgJxgH1CMhYl" data-polar-checkout data-polar-checkout-theme="dark">✨ SUBSCRIBE</a>
@@ -581,94 +588,21 @@
   <div class="content-section" data-category="game">
     <h2 class="section-title">🎮 GAMES</h2>
     <div class="shorts-grid">
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_GAME_ID_1" style="background: url('https://i.ytimg.com/vi/EXAMPLE_GAME_ID_1/maxresdefault.jpg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_GAME_ID_1?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
       </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_GAME_ID_2" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+2') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_GAME_ID_2?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_GAME_ID_3" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=GAME+SHORT+3') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_GAME_ID_3?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-    </div>
   </div>
 
   <div class="content-section" data-category="music">
     <h2 class="section-title">🎵 ATL MUSIK</h2>
     <div class="shorts-grid">
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_MUSIC_ID_1" style="background: url('https://i.ytimg.com/vi/EXAMPLE_MUSIC_ID_1/maxresdefault.jpg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_MUSIC_ID_1?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_MUSIC_ID_2" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=MUSIC+SHORT+2') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_MUSIC_ID_2?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-    </div>
+       </div>
   </div>
-
-  <div class="content-section" data-category="spiritual">
-    <h2 class="section-title">✨ SPIRITUAL</h2>
-    <div class="shorts-grid">
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_SPIRITUAL_ID_1" style="background: url('https://i.ytimg.com/vi/EXAMPLE_SPIRITUAL_ID_1/maxresdefault.jpg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_SPIRITUAL_ID_1?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_SPIRITUAL_ID_2" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=SPIRITUAL+SHORT+2') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_SPIRITUAL_ID_2?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-section" data-category="comedy">
-    <h2 class="section-title">😂 COMEDY</h2>
-    <div class="shorts-grid">
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_COMEDY_ID_1" style="background: url('https://i.ytimg.com/vi/EXAMPLE_COMEDY_ID_1/maxresdefault.jpg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_COMEDY_ID_1?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_COMEDY_ID_2" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=COMEDY+SHORT+2') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_COMEDY_ID_2?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-section" data-category="biz">
-    <h2 class="section-title">🅱️IZ</h2>
-    <div class="shorts-grid">
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="fvjCvlx" style="background: url('https://i.imgur.com/fvjCvlx.jpeg') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/fvjCvlx?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-      <div class="short-embed">
-        <div class="short-poster" data-youtube-id="EXAMPLE_BIZ_ID_2" style="background: url('https://via.placeholder.com/320x570/333333/FFFFFF?text=BIZ+SHORT+2') center/cover;"></div>
-        <div class="play-icon">▶️</div>
-        <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EXAMPLE_BIZ_ID_2?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
+  
   <div class="calcom-embed">
-    <h2>Lock In A 📅 Livestream PPV Show</h2>
+    <h2>📅 Lock In A Livestream PPV Show</h2>
     <iframe
-    src="https://cal.com/atl5d/30min?month=2023-10&email=hi@atl5d.com"
-    frameborder="0"
-    style="width:100%;min-height:650px;"
+      src="https://cal.com/atl5d/30min?theme=dark&ui=hideEventTypeDetails,hideLandingPageDetails"
+      frameborder="0"
+      scrolling="no"
     ></iframe>
   </div>
 
@@ -706,9 +640,9 @@
       <div class="footer-column">
         <h4>ATL5D</h4>
         <ul>
-          <li></li><a href="https://tree.atl55.com">🌴 TREE.</a></li>
-          <li></li><a href="https://lyrictor.atl5d.com">🎶 LYRICTOR.</a></li>
-          <li></li><a href="https://unite4.atl5d.com">4️⃣ UNITE4.</a></li>
+          <li><a href="https://tree.atl55.com">🌴 TREE.</a></li>
+          <li><a href="https://lyrictor.atl5d.com">🎶 LYRICTOR.</a></li>
+          <li><a href="https://unite4.atl5d.com">4️⃣ UNITE4.</a></li>
         </ul>
       </div>
       <div class="footer-column">
@@ -745,7 +679,6 @@
   
   <script type="text/javascript">
     (function(C,A,L){C["Cal"]=A;if(!L)L=function(){A.push(arguments)};A=C["Cal"]||[];A["_"]=L;C["cal"]=C["cal"]||function(){return new A._(arguments)}}(window,window["Cal"]||[],"Cal"));
-    // cal("init"); // This line is commented out as it's typically not required for the simple iframe embed with ?embed=true
   </script>
 
   <script>
