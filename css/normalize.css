@@ -353,3 +353,23 @@ td,
 th {
   padding: 0;
 }
+.subscription-card .sign-up-button { /* This selector is very specific */
+    display: inline-block;
+    background: #E50914; /* Red button */
+    color: white;
+    border: 2px solid #000; /* Add border for style */
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center;
+}
+
+.subscription-card .sign-up-button:hover {
+    background: #FFD700; /* Gold hover */
+    color: #333333;
+}
