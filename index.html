@@ -940,54 +940,94 @@
         <br/><span class="emoji-prefix">💖</span> Use the <a href="https://vm.tiktok.com/ZP8rLEdFk/" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D ReelView</a> to leave a vibe review post tagging your vendor co-host! ✨
     </h2>
 
-    <!-- Tier 1: ATL Quickfire -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/15min" data-cal-namespace="15min">
+     <!-- Tier 1: ATL Quickfire -->
+  <div class="promo-box calcom-booking-tier-box">
       <h3>⚡️ QUICKY</h3>
       <div class="price-value">$77</div>
       <p>A quick 15-minute livestream show for fast Atlanta services via Huddle!</p>
       <button class="book-button" data-cal-link="atl5d/15min" data-cal-namespace="15min">
         Lock It In! 📅
       </button>
-    </div>
+    <!-- Cal inline embed code begins for 15min -->
+    <div style="width:100%;height:550px;overflow:auto;" id="my-cal-inline-15min"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "15min", {origin:"https://cal.com"});
 
-    <!-- Tier 2: The ATL Beatdown -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/30min" data-cal-namespace="30min">
+      Cal.ns["15min"]("inline", {
+        elementOrSelector:"#my-cal-inline-15min",
+        config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false}, /* Added theme and hideEventTypeDetails */
+        calLink: "atl5d/15min",
+      });
+
+      Cal.ns["15min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"}); /* Added theme */
+    </script>
+    <!-- Cal inline embed code ends for 15min -->
+  </div>
+
+  <!-- Tier 2: The ATL Beatdown -->
+  <div class="promo-box calcom-booking-tier-box">
       <h3>🎤 PR </h3>
       <div class="price-value">$155</div>
       <p>A solid 30-minute livestream show for interviews & service demos!</p>
       <button class="book-button" data-cal-link="atl5d/30min" data-cal-namespace="30min">
         Lock It In! 📅
       </button>
-    </div>
+    <!-- Cal inline embed code begins for 30min -->
+    <div style="width:100%;height:550px;overflow:auto;" id="my-cal-inline-30min"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "30min", {origin:"https://cal.com"});
 
-    <!-- Tier 3: Magic City Mainstage -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="60-minute-livestream-show">
-      <h3>💎 GEM</h3>
-      <div class="price-value">$333</div>
-      <p>The ultimate 60-minute livestream show for in-depth services, showcases & big reveals!</p>
-      <button class="book-button" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="60-minute-livestream-show">
-        Lock It In! 📅
-      </button>
-    </div>
+      Cal.ns["30min"]("inline", {
+        elementOrSelector:"#my-cal-inline-30min", /* Unique ID */
+        config: {"layout":"month_view","theme":"dark","hideEventTypeDetails":false}, /* Added theme and hideEventTypeDetails */
+        calLink: "atl5d/30min",
+      });
+
+      Cal.ns["30min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"}); /* Added theme */
+    </script>
+    <!-- Cal inline embed code ends for 30min -->
   </div>
 
-<!-- Dynamic Cal.com Inline Calendar Display -->
-<div id="cal-inline-calendar-display" style="width:100%;height:650px;overflow:auto; display:none; margin: 30px auto; max-width: 700px; background-color: #111; color: #fff; border-radius: 12px; border: 4px solid #000; box-shadow: 8px 8px 0 #FFD700;">
-    <!-- Calendar will be loaded here dynamically -->
+  <!-- Tier 3: Magic City Mainstage -->
+  <div class="promo-box calcom-booking-tier-box">
+    <h3>💎 GEM</h3>
+    <div class="price-value">$333</div>
+    <p>The ultimate 60-minute livestream show for in-depth services, showcases & big reveals!</p>
+    <button class="book-button" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="60-minute-livestream-show">
+    Lock It In! 📅
+    </button>
+    <!-- Cal inline embed code begins for 60min -->
+    <div style="width:100%;height:550px;overflow:auto;" id="my-cal-inline-60min"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "60-minute-livestream-show", {origin:"https://cal.com"});
+
+      Cal.ns["60-minute-livestream-show"]("inline", {
+        elementOrSelector:"#my-cal-inline-60min", /* Unique ID */
+        config: {"layout":"month_view","theme":"dark","hideEventTypeDetails":false}, /* Added theme and hideEventTypeDetails */
+        calLink: "atl5d/60-minute-livestream-show",
+      });
+
+      Cal.ns["60-minute-livestream-show"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"}); /* Added theme */
+    </script>
+    <!-- Cal inline embed code ends for 60min -->
+  </div>
 </div>
 
 <div class="promo-box polar-subscription-box">
   <div class="price-header">
     <h3>✨CLUB 112: The Unfunded Growth Accelerator</h3>
     <span class="price-value">$112/MO</span>
-    <small><i>(Receive 📅 booked Atlanta leads first)</i></small>
+    <small><i>(Designed for unfunded businesses seeking significant organic reach and community engagement.)</i></small>
   </div>
        <ul>
         <li><span class="emoji">🎬</span> Get a 🔥 custom 11-sec HD vendor reel 🅰️D made by the 🅰️TL5D creator Wizard of Hahz himself</li>
         <li><span class="emoji">🏪</span> Branded ATL5D Discord Club 112 username badge + biz channel CRM for your livestream show fans</li>
-        <li><span class="emoji">📍</span> We Geotag your reel content to our ATL5D M🅰️P. for enhanced local visibility. 📡</li>
+        <li><span class="emoji">📍</span> We Geotag your reel content to our <a href="https://map.atl5d.com" target="_blank" style="color: inherit; text-decoration: underline;">ATL5D M🅰️P</a> for enhanced local visibility. 📡</li>
         <li><span class="emoji">📣</span> Hype squad: Your reel gets pushed on TikTok, X, Discord, Telegram + ATLFLIX YouTube 🚀</li>
-        <li><span class="emoji">🅰️</span> 112K/month in $ATL dropped directly to your W🅰️LLO digital wallet for tipping those who book and watch livestreams. 🪙✨</li>
+        <li><span class="emoji">🅰️</span> 112K/month in $ATL dropped directly to your <a href="https://wallo.atl5d.com" target="_blank" style="color: inherit; text-decoration: underline;">W🅰️LLO digital wallet</a> for tipping those who book and watch livestreams. 🪙✨</li>
      </ul>
   <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ"
      data-polar-checkout
@@ -1056,7 +1096,8 @@
   
   <script type="text/javascript">
     // Cal.com embed.js loader setup (global)
-    // This function ensures the Cal.com embed script is loaded only once.
+    // This function will ensure the Cal.com embed script is loaded only once.
+    // It's part of Cal.com's provided embed code.
     (function (C, A, L) {
         let p = function (a, ar) { a.q.push(ar); };
         let d = C.document;
@@ -1084,84 +1125,35 @@
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-
-    // --- Configuration functions for each Cal.com booking tier ---
-    // These functions encapsulate the Cal("init") and Cal.ns["inline"] calls for each tier.
-    const calComTierConfigs = {
-      "15min": () => {
-        // Initialize Cal for this specific namespace (if not already done by a previous click)
-        if (!window.Cal.ns["15min"] || !window.Cal.ns["15min"].loaded) {
-            Cal("init", "15min", {origin:"https://cal.com"});
-        }
-        // Load the inline calendar into the designated display div
+    // --- Cal.com Initialization on DOMContentLoaded (for individual inline embeds) ---
+    // This ensures each Cal.com inline embed within its promo-box is initialized once the DOM is ready.
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize 15min Cal.com embed
+        Cal("init", "15min", {origin:"https://cal.com"});
         Cal.ns["15min"]("inline", {
-          elementOrSelector: "#cal-inline-calendar-display",
-          config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
-          calLink: "atl5d/15min",
+            elementOrSelector:"#my-cal-inline-15min",
+            config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
+            calLink: "atl5d/15min",
         });
-        // Apply UI styling (redundant if set in inline.config, but harmless)
         Cal.ns["15min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
-      },
-      "30min": () => {
-        if (!window.Cal.ns["30min"] || !window.Cal.ns["30min"].loaded) {
-            Cal("init", "30min", {origin:"https://cal.com"});
-        }
+
+        // Initialize 30min Cal.com embed
+        Cal("init", "30min", {origin:"https://cal.com"});
         Cal.ns["30min"]("inline", {
-          elementOrSelector: "#cal-inline-calendar-display",
-          config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
-          calLink: "atl5d/30min",
+            elementOrSelector:"#my-cal-inline-30min",
+            config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
+            calLink: "atl5d/30min",
         });
         Cal.ns["30min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
-      },
-      "60-minute-livestream-show": () => {
-        if (!window.Cal.ns["60-minute-livestream-show"] || !window.Cal.ns["60-minute-livestream-show"].loaded) {
-            Cal("init", "60-minute-livestream-show", {origin:"https://cal.com"});
-        }
+
+        // Initialize 60min Cal.com embed
+        Cal("init", "60-minute-livestream-show", {origin:"https://cal.com"});
         Cal.ns["60-minute-livestream-show"]("inline", {
-          elementOrSelector: "#cal-inline-calendar-display",
-          config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
-          calLink: "atl5d/60-minute-livestream-show",
+            elementOrSelector:"#my-cal-inline-60min",
+            config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
+            calLink: "atl5d/60-minute-livestream-show",
         });
         Cal.ns["60-minute-livestream-show"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
-      },
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get references to elements
-      const calDisplayDiv = document.getElementById('cal-inline-calendar-display');
-      const bookButtons = document.querySelectorAll('.calcom-booking-tier-box .book-button');
-      
-      // Add event listeners to each booking tier button
-      bookButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const calLink = this.getAttribute('data-cal-link'); // e.g., atl5d/15min
-          const calNamespace = this.getAttribute('data-cal-namespace'); // e.g., 15min
-
-          // Determine the correct key for the calComTierConfigs object
-          const configKey = calNamespace; 
-          
-          if (configKey && calComTierConfigs[configKey]) {
-            // Hide all promo boxes and show only the calendar display
-            // This ensures only the calendar is visible after clicking "Book It In!"
-            document.querySelectorAll('.promo-box').forEach(box => {
-                box.style.display = 'none';
-            });
-            document.querySelector('.contact-info').style.display = 'none'; // Also hide contact info for funded biz
-
-            // Show the calendar display div
-            calDisplayDiv.style.display = 'block';
-
-            // Execute the specific Cal.com inline embed function for the selected tier
-            calComTierConfigs[configKey](); 
-          }
-        });
-      });
-
-      // Initially hide the dynamic calendar display until a tier is selected
-      // This style is also set in CSS (display: none), but explicit JS can ensure it if CSS loads later
-      if (calDisplayDiv) {
-        calDisplayDiv.style.display = 'none'; 
-      }
     });
   </script>
 
@@ -1179,17 +1171,15 @@
       });
     });
 
-    // Short reels script (Lazy Loading)
-    document.querySelectorAll('.short-embed').forEach(shortEmbed => {
-      const iframe = shortEmbed.querySelector('iframe');
+    // Short reels script
+    document.querySelectorAll('.short-embed').forEach(short => {
+      const iframe = short.querySelector('iframe');
       const dataSrc = iframe.getAttribute('data-src');
-      const poster = shortEmbed.querySelector('.short-poster');
-      const playIcon = shortEmbed.querySelector('.play-icon');
 
-      shortEmbed.addEventListener('click', () => {
-        if (!shortEmbed.classList.contains('playing')) {
-          shortEmbed.classList.add('playing');
-          iframe.src = dataSrc; // Set the actual YouTube source
+      short.addEventListener('click', () => {
+        if (!short.classList.contains('playing')) {
+          short.classList.add('playing');
+          iframe.src = dataSrc;
         }
       });
     });
