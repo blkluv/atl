@@ -284,16 +284,19 @@
       color: #333333;
     }
 
-    /* Cal.com Embed and Polar.sh Subscription Box - Shared Container */
+    /* Promo Section Container for Cal.com and Polar.sh */
     .promo-section-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
         padding: 50px 5%;
-        /* Removed background/borders here as promo-box handles styling */
+        background: #F0F0F0; /* Re-added light background for the whole container */
+        border-top: 1px solid #E0E0E0; /* Re-added borders for the whole container */
+        border-bottom: 1px solid #E0E0E0;
     }
 
+    /* Individual Promo Boxes (Cal.com and Polar.sh) */
     .promo-box {
         background-color: #fff;
         color: #333;
@@ -303,13 +306,19 @@
         border-radius: 8px;
         padding: 20px;
         flex: 1 1 300px; /* Allows boxes to grow/shrink */
-        max-width: 500px; /* Max width for individual boxes */
+        max-width: 380px; /* Adjusted max-width for 3 tiers to fit better on a row */
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-top: 20px; /* Added margin for separation */
         margin-bottom: 20px; /* Added margin for separation */
+        transition: transform 0.3s, box-shadow 0.3s; /* Add transition for hover */
+    }
+
+    .promo-box:hover {
+        transform: translateY(-5px); /* Lift slightly on hover */
+        box-shadow: 6px 6px 0 #FFD700; /* Gold offset shadow on hover */
     }
 
     .promo-box h2 {
@@ -320,69 +329,41 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
-
-    .promo-box iframe {
-        width: 100%;
-        height: 550px; /* Adjusted slightly for content */
-        border: none;
-        border-radius: 6px;
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* Specific styles for the Polar.sh box (re-used subscription-card styles) */
-    .polar-subscription-box .price-header {
-        margin-bottom: 15px;
-    }
-    .polar-subscription-box .price-header h3 {
-        font-size: 1.8rem;
-        color: #E50914;
-        margin-bottom: 5px;
+    .promo-box h3 { /* For tier names inside promo-box */
+        font-size: 1.6rem;
+        color: #000; /* Black for tier names */
+        margin-top: 0;
+        margin-bottom: 10px;
         text-align: center;
     }
-    .polar-subscription-box .price-header .price-value {
-        font-size: 2.5rem;
+    .promo-box .price-value {
+        font-size: 2.2rem; /* Slightly smaller price for tiers */
         font-weight: bold;
-        color: #000000;
+        color: #E50914; /* Red for prices */
         display: block;
         text-align: center;
+        margin-bottom: 5px;
     }
-    .polar-subscription-box .price-header .price-value small {
+    .promo-box small {
+        display: block;
         font-size: 0.8em;
         font-weight: normal;
         color: #555555;
-        display: block;
-        margin-top: 5px;
+        margin-top: 0; /* Remove top margin */
+        text-align: center;
     }
-
-    .polar-subscription-box ul {
-        list-style: none;
-        padding: 0;
-        text-align: left;
-        margin-bottom: 30px;
-        flex-grow: 1;
+    .promo-box p {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #444;
+        margin-bottom: 20px;
+        flex-grow: 1; /* Allows description to take space */
     }
-
-    .polar-subscription-box ul li {
-        margin-bottom: 10px;
-        font-size: 1.05rem;
-        color: #444444;
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .polar-subscription-box ul li .emoji {
-        font-size: 1.2em;
-        line-height: 1.2;
-        flex-shrink: 0;
-    }
-
-    .polar-subscription-box .polar-button {
+    .promo-box .book-button { /* New class for the "Book Now" buttons */
         display: inline-block;
-        background: #E50914;
+        background: #000;
         color: white;
-        border: none;
+        border: 2px solid #E50914; /* Red border */
         padding: 12px 25px;
         border-radius: 6px;
         font-weight: bold;
@@ -393,19 +374,76 @@
         box-sizing: border-box;
         text-align: center;
         font-size: 1.1rem;
-        border: 2px solid #000; /* Ensure button also has border */
+        margin-top: 20px; /* Space above button */
     }
-
-    .polar-subscription-box .polar-button:hover {
+    .promo-box .book-button:hover {
         background: #FFD700;
-        color: #333333;
+        color: #333;
+        border-color: #000; /* Black border on hover */
     }
 
-    .polar-subscription-box .contact-info-text {
-        margin-top: 20px;
-        font-size: 0.9em;
-        color: #666;
-        text-align: center;
+
+    /* Modal Overlay (for Cal.com popup) */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-content {
+        background-color: #111; /* Dark background for modal */
+        padding: 20px;
+        border-radius: 12px;
+        position: relative;
+        max-width: 700px; /* Increased max width for calendar */
+        width: 90%;
+        height: 80vh; /* Make modal tall enough */
+        overflow: hidden; /* Prevent modal content from overflowing */
+        border: 4px solid #000; /* Black border */
+        box-shadow: 8px 8px 0 #FFD700; /* Gold offset shadow */
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-content iframe {
+        width: 100%;
+        height: 100%; /* Take full height of modal-content */
+        border: none;
+        border-radius: 6px;
+    }
+    .modal-close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #E50914;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1001; /* Ensure it's above iframe */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
+    .modal-close-button:hover {
+        background: #000;
     }
 
 
@@ -420,14 +458,13 @@
 
     .footer-columns {
       display: grid;
-      /* Main fix: explicitly define grid for larger screens outside of media query */
-      grid-template-columns: repeat(4, 1fr); 
+      grid-template-columns: repeat(4, 1fr); /* Default 4 columns */
       gap: 20px;
       margin-bottom: 30px;
-      text-align: left; /* Align text left in columns */
       max-width: 1200px; /* Constrain width */
       margin-left: auto;
       margin-right: auto;
+      text-align: left; /* Default left align for columns on larger screens */
     }
 
     .footer-column h4 {
@@ -453,6 +490,7 @@
       text-decoration: none;
       transition: color 0.3s;
       font-weight: 500;
+      word-break: break-word; /* Allow long URLs to break and wrap */
     }
 
     .footer-column ul li a:hover {
@@ -472,6 +510,13 @@
     @media (max-width: 991px) {
       .footer-columns {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        text-align: center; /* Center footer columns when 2 wide */
+      }
+      .footer-column ul {
+          margin-bottom: 20px; /* Add space between stacked lists */
+      }
+      .footer-column {
+          text-align: center; /* Ensure columns center themselves */
       }
     }
 
@@ -582,7 +627,7 @@
     <div class="video-placeholder" style="background: url('https://i.imgur.com/lDbYyeu.png') center/cover;">
       <iframe
         class="hero-video"
-        src="https://www.youtube-nocookie.com/embed/wYqO0GJz6Kg?controls=0&autoplay=1&mute=1&loop=1&playlist=wYqO0GJz6Kg&modestbranding=1&rel=0"
+        src="https://www.youtube-nocookie.com/embed/p3VQtMlpKPo?controls=0&autoplay=1&mute=1&loop=1&playlist=p3VQtMlpKPo&modestbranding=1&rel=0"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -590,13 +635,11 @@
       ></iframe>
     </div>
     <div class="hero-content">
-      <h1>🅰️TL5️⃣D</h1>
-      <p>📅 Lock in an Atlanta booking service request below based on what you can pay, posted on on @ATL5D TikTok that leads to a 15, 30, 60 livestream show! We promote the Top 5️⃣ 🅰️TLFLUENCERS.</p>
+      <h1>🅰️TL5D</h1>
+      <p>🔥 ATL's 🅰️CONOMY — Book an Atlanta services as 15-30-60 livestream shows!</p>
       <div class="hero-buttons">
-        <a href="https://tiktok.com/@atl5d" target="_blank" class="play-button">1️⃣ Lock In 📅</a>
-        <a href="https://tiktok.com/@atl5d" target="_blank" class="play-button">2️⃣ Follow @🅰️TL5D TikTok</a>
-        <a href="https://www.youtube.com/@atlflix?sub_confirmation=1" target="_blank" class="play-button">🔥 SUBSCRIBE TO 🅰️TLFLIX</a>
-        <a href="https://wallo.atl5d.com" target="_blank" class="play-button">🔥 CREATE A $ATL W🅰️LLO</a>
+        <a href="https://www.youtube.com/@atlflix?sub_confirmation=1" target="_blank" class="play-button">SUBSCRIBE TO 🅰️TLFLIX</a>
+        <a href="https://wallo.atl5d.com" target="_blank" class="play-button">CREATE AN $ATL W🅰️LLO</a>
       </div>
     </div>
   </section>
@@ -629,6 +672,30 @@
 
       <div class="short-container">
         <div class="short-embed">
+          <div class="short-poster" data-youtube-id="wYqO0GJz6Kg" style="background: url('https://i.ytimg.com/vi/wYqO0GJz6Kg/maxresdefault.jpg') center/cover;"></div>
+          <div class="play-icon">▶️</div>
+          <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/wYqO0GJz6Kg?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
+        </div>
+        <div class="short-actions">
+          <a href="https://cal.com/atl5d/30min" target="_blank" class="action-button">📅 Book</a>
+          <a href="https://buy.polar.sh/atl5d" target="_blank" class="action-button">💰 Buy</a>
+        </div>
+      </div>
+
+      <div class="short-container">
+        <div class="short-embed">
+          <div class="short-poster" data-youtube-id="evi8jAXwoDw" style="background: url('https://i.ytimg.com/vi/evi8jAXwoDw/maxresdefault.jpg') center/cover;"></div>
+          <div class="play-icon">▶️</div>
+          <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/evi8jAXwoDw?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
+        </div>
+        <div class="short-actions">
+          <a href="https://cal.com/atl5d/30min" target="_blank" class="action-button">📅 Book</a>
+          <a href="https://buy.polar.sh/atl5d" target="_blank" class="action-button">💰 Buy</a>
+        </div>
+      </div>
+
+      <div class="short-container">
+        <div class="short-embed">
           <div class="short-poster" data-youtube-id="eAiKTzlJagE" style="background: url('https://i.ytimg.com/vi/eAiKTzlJagE/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/eAiKTzlJagE?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
@@ -645,10 +712,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EUbuPgYjPQQ?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" target="_blank" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" target="_blank" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -657,12 +720,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/8jmSGWoUKJI?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" target="_blank" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" target="_blank" class="action-button">💰 Buy</a>
-        </div>
       </div>
-      
     </div>
   </div>
 
@@ -674,10 +732,6 @@
           <div class="short-poster" data-youtube-id="FctrsvZLuLU" style="background: url('https://i.ytimg.com/vi/FctrsvZLuLU/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/FctrsvZLuLU?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" target="_blank" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" target="_blank" class="action-button">💰 Buy</a>
         </div>
       </div>
     </div>
@@ -692,10 +746,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/43TIfcpFxac?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -703,10 +753,6 @@
           <div class="short-poster" data-youtube-id="O8SWja0CPxY" style="background: url('https://i.ytimg.com/vi/O8SWja0CPxY/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/O8SWja0CPxY?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
 
@@ -728,10 +774,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/MFow6d292yE?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
     </div>
   </div>
@@ -745,10 +787,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/bERUyUwyjpQ?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -756,10 +794,6 @@
           <div class="short-poster" data-youtube-id="5Fsht6clkDs" style="background: url('https://i.ytimg.com/vi/5Fsht6clkDs/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/5Fsht6clkDs?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
 
@@ -769,10 +803,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/qHLx50OSZhM?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -781,10 +811,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/hPijSeF5yvE?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -792,10 +818,6 @@
           <div class="short-poster" data-youtube-id="QenZOWxJ8ZQ" style="background: url('https://i.ytimg.com/vi/QenZOWxJ8ZQ/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/QenZOWxJ8ZQ?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
     </div>
@@ -810,10 +832,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/-lIFbBGQsfI?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -821,10 +839,6 @@
           <div class="short-poster" data-youtube-id="IExIuRCg5VU" style="background: url('https://i.ytimg.com/vi/IExIuRCg5VU/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/IExIuRCg5VU?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
 
@@ -834,10 +848,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/hfH5F3bX5T4?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -846,10 +856,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/NGqWM4xRnVI?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -857,10 +863,6 @@
           <div class="short-poster" data-youtube-id="ytAMGrG1-gI" style="background: url('https://i.ytimg.com/vi/ytAMGrG1-gI/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/ytAMGrG1-gI?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
     </div>
@@ -875,10 +877,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/fvjCvlx?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -886,10 +884,6 @@
           <div class="short-poster" data-youtube-id="MESx1p8A4uc" style="background: url('https://i.ytimg.com/vi/MESx1p8A4uc/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/MESx1p8A4uc?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
 
@@ -899,10 +893,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/t84JpJ6iglo?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -911,10 +901,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/HgY3myHKcQ4?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -922,10 +908,6 @@
           <div class="short-poster" data-youtube-id="CQLJN3sIrzs" style="background: url('https://i.ytimg.com/vi/CQLJN3sIrzs/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/CQLJN3sIrzs?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
     </div>
@@ -940,10 +922,6 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/2AtIcrtIpdg?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
-        </div>
       </div>
 
       <div class="short-container">
@@ -951,10 +929,6 @@
           <div class="short-poster" data-youtube-id="l0RxYhiL6U4" style="background: url('https://i.ytimg.com/vi/l0RxYhiL6U4/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/l0RxYhiL6U4?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
-        </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
         </div>
       </div>
 
@@ -964,9 +938,13 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/2gaFfmD3DI8?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <div class="short-actions">
-          <a href="https://cal.com/atl5d/30min" class="action-button">📅 Book</a>
-          <a href="https://buy.polar.sh/atl5d" class="action-button">💰 Buy</a>
+      </div>
+
+      <div class="short-container">
+        <div class="short-embed">
+          <div class="short-poster" data-youtube-id="HgY3myHKcQ4" style="background: url('https://i.ytimg.com/vi/HgY3myHKcQ4/maxresdefault.jpg') center/cover;"></div>
+          <div class="play-icon">▶️</div>
+          <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/HgY3myHKcQ4?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -975,9 +953,9 @@
   <!-- Booking Tiers Section -->
   <div class="promo-section-container">
     <h2 class="section-title" style="width: 100%; text-align: center; margin-bottom: 30px;">
-    <span class="emoji-prefix">✨</span> 📅 Lock It In! We post your service request on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D</a> TikTok (Give it 24-48 HRS to cook)
-    <br/><span class="emoji-prefix">👀✅</span> Choose your vendor co-host on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">@ATL5D TikTok</a> (see before/after videos in comments and duets)
-    <br/><span class="emoji-prefix">💖⭐🚀</span> Use the <a href="https://vm.tiktok.com/ZP8rLEdFk/" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D ReelView</a> to leave a vibe review post tagging your vendor co-host! ✨
+        <span class="emoji-prefix">✨</span> 📅 Lock It In! We post your service request on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D TikTok</a> (Give it 24-48 HRS to cook)
+        <br/><span class="emoji-prefix">👀</span> Choose your vendor co-host on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">@ATL5D TikTok</a> (see before/after videos in comments and duets)
+        <br/><span class="emoji-prefix">💖</span> Use the <a href="https://vm.tiktok.com/ZP8rLEdFk/" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D ReelView</a> to leave a vibe review post tagging your vendor co-host! ✨
     </h2>
 
     <!-- Tier 1: ATL Quickfire -->
@@ -1024,10 +1002,10 @@
         <li><span class="emoji">📣</span> Hype squad: Your reel gets pushed on TikTok, X, Discord, Telegram + ATLFLIX YouTube 🚀</li>
         <li><span class="emoji">🅰️</span> 112K/month in $ATL dropped directly to your <a href="https://wallo.atl5d.com" target="_blank" style="color: inherit; text-decoration: underline;">W🅰️LLO digital wallet</a> for tipping those who book and watch livestreams. 🪙✨</li>
      </ul>
-  <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ" 
-     data-polar-checkout 
-     data-polar-checkout-theme="dark" 
-     class="sign-up-button">SUBSCRIBE</a>
+  <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ"
+     data-polar-checkout
+     data-polar-checkout-theme="dark"
+     class="polar-button">SUBSCRIBE</a>
 
   <p class="contact-info-text"><i>For unfunded businesses only.</i></p>
 </div>
@@ -1043,13 +1021,13 @@
       <div class="footer-column">
         <h4>ATL5D</h4>
         <ul>
-          <li><a href="https://a.atl5d.com">🅰️ A.ATL5D.COM - ATL Twitter/X</a></li>
-          <li><a href="https://tree.atl55.com">🌴 TREE.ATL5D.COM - The ATL LinkTree</a></li>
-          <li><a href="https://lyrictor.atl5d.com">🎶 LYRICTOR.ATL5D.COM - Musik Lyrics</a></li>
-          <li><a href="https://map.atl5d.com">❤️‍🔥 MAP.ATL5D.COM - ATL Reel Map</a></li>
-          <li><a href="https://wallo.atl5d.com">🏦 WALLO.ATL5D.COM - $ATL Bank-Head Wallet (RIP Shawty LO)</a></li>
-          <li><a href="https://solpay.atl5d.com">🏪 SOL.ATL5D.COM - FREE Solana QR POS</a></li>
-          <li><a href="https://t.me/blum/app?startapp=memepadjetton_ATL_llnJs-ref_9K5kvzkHYM">💰 Telegram $ATL - Pay for ATL Telegram services</a></li>
+          <li><a href="https://a.atl5d.com" target="_blank">🅰️ A.ATL5D.COM - ATL Twitter/X</a></li>
+          <li><a href="https://tree.atl55.com" target="_blank">🌴 TREE.ATL5D.COM - The ATL LinkTree</a></li>
+          <li><a href="https://lyrictor.atl5d.com" target="_blank">🎶 LYRICTOR.ATL5D.COM - Musik Lyrics</a></li>
+          <li><a href="https://map.atl5d.com" target="_blank">❤️‍🔥 MAP.ATL5D.COM - ATL Reel Map</a></li>
+          <li><a href="https://wallo.atl5d.com" target="_blank">🏦 WALLO.ATL5D.COM - $ATL Bank-Head Wallet (RIP Shawty LO)</a></li>
+          <li><a href="https://solpay.atl5d.com" target="_blank">🏪 SOL.ATL5D.COM - FREE Solana QR POS</a></li>
+          <li><a href="https://t.me/blum/app?startapp=memepadjetton_ATL_llnJs-ref_9K5kvzkHYM" target="_blank">💰 Telegram $ATL - Pay for ATL Telegram services</a></li>
 
         </ul>
       </div>
@@ -1066,19 +1044,19 @@
       <div class="footer-column">
         <h4>TIKTOK 🅰️R EFFECTS</h4>
         <ul>
-          <li><a href="https://vm.tiktok.com/ZP8rL9VMU/">MUSICAL VISUAL - TikTok Musik Videos (55K Views)</a></li>
-          <li><a href="https://vm.tiktok.com/ZP8rLTnjh/">AURA - Spiritual Glow Up (26K)</a></li>
-          <li><a href="https://vm.tiktok.com/ZP8rLpKrp/">360 BOOTH - Lumee Booth AR Rentals (18K)</a></li>
-          <li><a href="https://vm.tiktok.com/ZP8rLGBkf/">RNTALS - ATL5D Rentals (5K)</a></li>
-          <li><a href="https://vm.tiktok.com/ZP8rLEdFk/">ATL5D REELVIEW - TikTok Reviews (4K)</a></li>
+          <li><a href="https://vm.tiktok.com/ZP8rL9VMU/" target="_blank">MUSICAL VISUAL - TikTok Musik Videos (55K Views)</a></li>
+          <li><a href="https://vm.tiktok.com/ZP8rLTnjh/" target="_blank">AURA - Spiritual Glow Up (26K)</a></li>
+          <li><a href="https://vm.tiktok.com/ZP8rLpKrp/" target="_blank">360 BOOTH - Lumee Booth AR Rentals (18K)</a></li>
+          <li><a href="https://vm.tiktok.com/ZP8rLGBkf/" target="_blank">RNTALS - ATL5D Rentals (5K)</a></li>
+          <li><a href="https://vm.tiktok.com/ZP8rLEdFk/" target="_blank">ATL5D REELVIEW - TikTok Reviews (4K)</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h4>FREE 🅰️TL5D GAMES</h4>
         <ul>
-          <li><a href="https://run.atl5d.com">🏃 RUN.ATL5D.COM - Infinite ATL Runner Game</a></li>
-          <li><a href="https://unite4.atl5d.com">4️⃣ UNITE4.ATL5D.COM - The New Connect Four</a></li>
-          <li><a href="https://diddyparty.atl5d.com/">4️⃣ DIDDYPARTY.ATL5D.COM - Diddy Party $OIL Memecoins</a></li>
+          <li><a href="https://run.atl5d.com" target="_blank">🏃 RUN.ATL5D.COM - Infinite ATL Runner Game</a></li>
+          <li><a href="https://unite4.atl5d.com" target="_blank">4️⃣ UNITE4.ATL5D.COM - The New Connect Four</a></li>
+          <li><a href="https://diddyparty.atl5d.com/" target="_blank">4️⃣ DIDDYPARTY.ATL5D.COM - Diddy Party $OIL Memecoins</a></li>
         </ul>
       </div>
     </div>
@@ -1090,7 +1068,47 @@
   <script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
   
   <script type="text/javascript">
-    (function(C,A,L){C["Cal"]=A;if(!L)L=function(){A.push(arguments)};A=C["Cal"]||[];A["_"]=L;C["cal"]=C["cal"]||function(){return new A._(arguments)}}(window,window["Cal"]||[],"Cal"));
+    // Cal.com embed init script (moved to DOMContentLoaded to ensure iframe is ready)
+    document.addEventListener('DOMContentLoaded', function() {
+      (function(C,A,L){C["Cal"]=A;if(!L)L=function(){A.push(arguments)};A=C["Cal"]||[];A["_"]=L;C["cal"]=C["cal"]||function(){return new A._(arguments)}}(window, "https://app.cal.com/embed/embed.js", "init"));
+      // Initialize Cal.com for any popups triggered by data-cal-link elements
+      cal("init"); 
+
+      const calcomModal = document.getElementById('calcomModal');
+      const calcomModalIframe = document.getElementById('calcomModalIframe');
+      const closeModalButton = document.getElementById('closeModal');
+      const bookButtons = document.querySelectorAll('.calcom-booking-tier-box .book-button');
+
+      bookButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const calLink = this.getAttribute('data-cal-link');
+          const calNamespace = this.getAttribute('data-cal-namespace'); // Not strictly needed for 'popup', but good for consistency
+          
+          if (calLink && calcomModalIframe && calcomModal) {
+            // Set iframe src to the Cal.com link for inline embed within modal
+            // You might need to adjust parameters for embed=true for proper styling
+            calcomModalIframe.src = `https://cal.com/${calLink}?embed=true&theme=dark&ui=hideEventTypeDetails,hideLandingPageDetails`;
+            calcomModal.classList.add('active'); // Show modal
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+          }
+        });
+      });
+
+      closeModalButton.addEventListener('click', function() {
+        calcomModal.classList.remove('active'); // Hide modal
+        calcomModalIframe.src = ''; // Clear iframe src to stop video/reset state
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+
+      // Close modal if clicking outside iframe, on overlay itself
+      calcomModal.addEventListener('click', function(event) {
+          if (event.target === calcomModal) {
+              calcomModal.classList.remove('active');
+              calcomModalIframe.src = '';
+              document.body.style.overflow = '';
+          }
+      });
+    });
   </script>
 
   <script>
