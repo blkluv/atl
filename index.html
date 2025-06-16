@@ -383,67 +383,24 @@
     }
 
 
-    /* Modal Overlay (for Cal.com popup) */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
+    /* Cal.com Dynamic Embed Container */
+    #cal-inline-calendar-display {
+        width: 100%; /* Take full width of parent column */
+        height: 650px; /* Specific height for the calendar embed */
+        margin-top: 30px; /* Space from the tier boxes */
+        background-color: #fef2f4; /* Match card background */
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(255, 110, 199, 0.2);
+        border: 4px solid #000;
+        box-sizing: border-box;
+        position: relative; /* For loader/message positioning */
+        display: none; /* Hidden until a tier is selected */
+    }
+    #cal-inline-calendar-display iframe {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    .modal-content {
-        background-color: #111; /* Dark background for modal */
-        padding: 20px;
-        border-radius: 12px;
-        position: relative;
-        max-width: 700px; /* Increased max width for calendar */
-        width: 90%;
-        height: 80vh; /* Make modal tall enough */
-        overflow: hidden; /* Prevent modal content from overflowing */
-        border: 4px solid #000; /* Black border */
-        box-shadow: 8px 8px 0 #FFD700; /* Gold offset shadow */
-        display: flex;
-        flex-direction: column;
-    }
-    .modal-content iframe {
-        width: 100%;
-        height: 100%; /* Take full height of modal-content */
         border: none;
-        border-radius: 6px;
-    }
-    .modal-close-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #E50914;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 1001; /* Ensure it's above iframe */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        transition: background 0.2s;
-    }
-    .modal-close-button:hover {
-        background: #000;
+        border-radius: 12px; /* Match container */
     }
 
 
@@ -663,7 +620,7 @@
           <div class="short-poster" data-youtube-id="0PfkBjvb-gY" style="background: url('https://i.ytimg.com/vi/0PfkBjvb-gY/maxresdefault.jpg') center/cover;"></div>
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/0PfkBjvb-gY?rel=0&autoplay=1&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        </div>=
       </div>
 
       <div class="short-container">
@@ -696,7 +653,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/EUbuPgYjPQQ?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- This short-container specifically has no short-actions -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -705,7 +662,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/8jmSGWoUKJI?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- This short-container specifically has no short-actions -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
     </div>
   </div>
@@ -720,8 +677,7 @@
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/WpC2fLQ-DNE?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
           <div class="short-actions">
-          <a href="https://cal.com/atl5d/60min" target="_blank" class="action-button">📅 Lock-In</a>
-          <a href="https://lumeebooth.com" target="_blank" class="action-button">💰 Learn More</a>
+          <a href="https://cal.com/atl5d/60min" target="_blank" class="action-button">📅 BOOK</a>
         </div>
       </div>
       <div class="short-container">
@@ -730,7 +686,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/fvjCvlx?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- This short-container specifically has no short-actions -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -739,7 +695,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/MESx1p8A4uc?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- This short-container specifically has no short-actions -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -748,7 +704,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/t84JpJ6iglo?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- This short-container specifically has no short-actions -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -757,7 +713,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/HgY3myHKcQ4?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- No short-actions here as per your last provided code -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -766,7 +722,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/CQLJN3sIrzs?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- No short-actions here as per your last provided code -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
     </div>
   </div>
@@ -780,7 +736,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/FctrsvZLuLU?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- No short-actions here as per your last provided code -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
     </div>
   </div>
@@ -794,7 +750,7 @@
           <div class="play-icon">▶️</div>
           <iframe loading="lazy" data-src="https://www.youtube-nocookie.com/embed/9tfQJqzQD5k?rel=0&autoplay=1&modestbranding=1" allowfullscreen></iframe>
         </div>
-        <!-- No short-actions here as per your last provided code -->
+        <!-- This short-container specifically has no short-actions in your provided code -->
       </div>
 
       <div class="short-container">
@@ -979,40 +935,45 @@
   <div class="promo-section-container">
     <h2 class="section-title" style="width: 100%; text-align: center; margin-bottom: 30px;">
         <span class="emoji-prefix">✨</span> 📅 Lock It In! We post your service request on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D TikTok</a> (Give it 24-48 HRS to cook)
-        <br/><span class="emoji-prefix">👀✅</span> Choose your vendor co-host on <a href="https://tiktok.com/@atl5d" target="_blank" style="color:inherit; text-decoration:underline;">@ATL5D TikTok</a> (see before/after videos in comments and duets)
-        <br/><span class="emoji-prefix">💖⭐🚀</span> Use the <a href="https://vm.tiktok.com/ZP8rLEdFk/" target="_blank" style="color:inherit; text-decoration:underline;">ATL5D ReelView</a> to leave a vibe review post tagging your vendor co-host! ✨
+        <br/><span class="emoji-prefix">👀</span> Choose your vendor co-host on @ATL5D TikTok(see before/after videos in comments and duets)
+        <br/><span class="emoji-prefix">🚀</span> Use the "ATL5D ReelView" to leave a vibe review post tagging your vendor co-host! ✨
     </h2>
 
     <!-- Tier 1: ATL Quickfire -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/15min" data-cal-namespace="atl5d-15min">
-      <h3>⚡️ Quicky</h3>
+    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/15min" data-cal-namespace="15min">
+      <h3>⚡️ 15 MIN QUICKY</h3>
       <div class="price-value">$77</div>
       <p>A quick 15-minute livestream show for fast Atlanta services via Huddle!</p>
-      <button class="book-button" data-cal-link="atl5d/15min" data-cal-namespace="atl5d-15min">
+      <button class="book-button" data-cal-link="atl5d/15min" data-cal-namespace="15min">
         Lock It In! 📅
       </button>
     </div>
 
     <!-- Tier 2: The ATL Beatdown -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/30min" data-cal-namespace="atl5d-30min">
-      <h3>🎤 PR </h3>
+    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/30min" data-cal-namespace="30min">
+      <h3>🎤 30 MIN PR</h3>
       <div class="price-value">$155</div>
       <p>A solid 30-minute livestream show for interviews & service demos!</p>
-      <button class="book-button" data-cal-link="atl5d/30min" data-cal-namespace="atl5d-30min">
+      <button class="book-button" data-cal-link="atl5d/30min" data-cal-namespace="30min">
         Lock It In! 📅
       </button>
     </div>
 
     <!-- Tier 3: Magic City Mainstage -->
-    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="atl5d-60min">
-      <h3>💎 GEM</h3>
+    <div class="promo-box calcom-booking-tier-box" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="60-minute-livestream-show">
+      <h3>💎 60 MIN GEM</h3>
       <div class="price-value">$333</div>
       <p>The ultimate 60-minute livestream show for in-depth services, showcases & big reveals!</p>
-      <button class="book-button" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="atl5d-60min">
+      <button class="book-button" data-cal-link="atl5d/60-minute-livestream-show" data-cal-namespace="60-minute-livestream-show">
         Lock It In! 📅
       </button>
     </div>
   </div>
+
+<!-- Dynamic Cal.com Inline Calendar Display -->
+<div id="cal-inline-calendar-display" style="width:100%;height:650px;overflow:auto; display:none; margin: 30px auto; max-width: 700px; background-color: #111; color: #fff; border-radius: 12px; border: 4px solid #000; box-shadow: 8px 8px 0 #FFD700;">
+    <!-- Calendar will be loaded here dynamically -->
+</div>
 
 <div class="promo-box polar-subscription-box">
   <div class="price-header">
@@ -1023,9 +984,9 @@
        <ul>
         <li><span class="emoji">🎬</span> Get a 🔥 custom 11-sec HD vendor reel 🅰️D made by the 🅰️TL5D creator Wizard of Hahz himself</li>
         <li><span class="emoji">🏪</span> Branded ATL5D Discord Club 112 username badge + biz channel CRM for your livestream show fans</li>
-        <li><span class="emoji">📍</span> We Geotag your reel content to our <a href="https://map.atl5d.com" target="_blank" style="color: inherit; text-decoration: underline;">ATL5D M🅰️P</a> for enhanced local visibility. 📡</li>
+        <li><span class="emoji">📍</span> We Geotag your reel content to our ATL5D M🅰️P. for enhanced local visibility. 📡</li>
         <li><span class="emoji">📣</span> Hype squad: Your reel gets pushed on TikTok, X, Discord, Telegram + ATLFLIX YouTube 🚀</li>
-        <li><span class="emoji">🅰️</span> 112K/month in $ATL dropped directly to your <a href="https://wallo.atl5d.com" target="_blank" style="color: inherit; text-decoration: underline;">W🅰️LLO digital wallet</a> for tipping those who book and watch livestreams. 🪙✨</li>
+        <li><span class="emoji">🅰️</span> 112K/month in $ATL dropped directly to your W🅰️LLO digital wallet for tipping those who book and watch livestreams. 🪙✨</li>
      </ul>
   <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ"
      data-polar-checkout
@@ -1093,45 +1054,108 @@
   <script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js" defer data-auto-init></script>
   
   <script type="text/javascript">
-    // Cal.com embed init script (moved to DOMContentLoaded to ensure iframe is ready)
+    // --- Cal.com embed.js loader setup ---
+    // This function will ensure the Cal.com embed script is loaded only once.
+    // It's part of Cal.com's provided embed code.
+    (function (C, A, L) {
+        let p = function (a, ar) { a.q.push(ar); };
+        let d = C.document;
+        C.Cal = C.Cal || function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
+            }
+            if (ar[0] === L) {
+                const api = function () { p(api, arguments); };
+                const namespace = ar[1];
+                api.q = api.q || [];
+                if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                } else p(cal, ar);
+                return;
+            }
+            p(cal, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    // --- Configuration for each Cal.com booking tier ---
+    // These functions encapsulate the Cal("init") and Cal.ns["inline"] calls for each tier.
+    // They will be called dynamically when a corresponding "Lock It In!" button is clicked.
+    const calComTierConfigs = {
+      "15min": () => {
+        // Only call Cal("init", namespace) if not already initialized for this namespace
+        if (!window.Cal.ns["15min"] || !window.Cal.ns["15min"].loaded) {
+            Cal("init", "15min", {origin:"https://cal.com"});
+        }
+        Cal.ns["15min"]("inline", {
+          elementOrSelector: "#cal-inline-calendar-display",
+          config: {"layout":"month_view", "theme":"dark", "hideEventTypeDetails":false},
+          calLink: "atl5d/15min",
+        });
+        Cal.ns["15min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
+      },
+      "30min": () => {
+        if (!window.Cal.ns["30min"] || !window.Cal.ns["30min"].loaded) {
+            Cal("init", "30min", {origin:"https://cal.com"});
+        }
+        Cal.ns["30min"]("inline", {
+          elementOrSelector: "#cal-inline-calendar-display",
+          config: {"layout":"month_view","theme":"dark","hideEventTypeDetails":false},
+          calLink: "atl5d/30min",
+        });
+        Cal.ns["30min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
+      },
+      "60-minute-livestream-show": () => {
+        if (!window.Cal.ns["60-minute-livestream-show"] || !window.Cal.ns["60-minute-livestream-show"].loaded) {
+            Cal("init", "60-minute-livestream-show", {origin:"https://cal.com"});
+        }
+        Cal.ns["60-minute-livestream-show"]("inline", {
+          elementOrSelector: "#cal-inline-calendar-display",
+          config: {"layout":"month_view","theme":"dark","hideEventTypeDetails":false},
+          calLink: "atl5d/60-minute-livestream-show",
+        });
+        Cal.ns["60-minute-livestream-show"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
+      },
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
-      (function(C,A,L){C["Cal"]=A;if(!L)L=function(){A.push(arguments)};A=C["Cal"]||[];A["_"]=L;C["cal"]=C["cal"]||function(){return new A._(arguments)}}(window, "https://app.cal.com/embed/embed.js", "init"));
-      // Initialize Cal.com for any popups triggered by data-cal-link elements
-      cal("init"); 
-
-      const calcomModal = document.getElementById('calcomModal');
-      const calcomModalIframe = document.getElementById('calcomModalIframe');
-      const closeModalButton = document.getElementById('closeModal');
+      // Get references to elements
+      const calDisplayDiv = document.getElementById('cal-inline-calendar-display');
       const bookButtons = document.querySelectorAll('.calcom-booking-tier-box .book-button');
-
+      
+      // Add event listeners to each booking tier button
       bookButtons.forEach(button => {
         button.addEventListener('click', function() {
-          const calLink = this.getAttribute('data-cal-link');
-          const calNamespace = this.getAttribute('data-cal-namespace'); // Not strictly needed for 'popup', but good for consistency
+          const calLink = this.getAttribute('data-cal-link'); // e.g., atl5d/15min
+          const calNamespace = this.getAttribute('data-cal-namespace'); // e.g., 15min
+
+          // Determine the correct key for the calComTierConfigs object
+          // This ensures we pick the right function based on data-cal-namespace or data-cal-link slug
+          const configKey = calNamespace; 
+          // Fallback if calNamespace isn't directly the key (e.g., if calLink was used directly as key)
+          // const configKey = calNamespace || calLink.split('/').pop(); 
           
-          if (calLink && calcomModalIframe && calcomModal) {
-            // Set iframe src to the Cal.com link for inline embed within modal
-            // You might need to adjust parameters for embed=true for proper styling
-            calcomModalIframe.src = `https://cal.com/${calLink}?embed=true&theme=dark&ui=hideEventTypeDetails,hideLandingPageDetails`;
-            calcomModal.classList.add('active'); // Show modal
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+          if (configKey && calComTierConfigs[configKey]) {
+            // Hide all promo boxes and show only the calendar display
+            document.querySelectorAll('.calcom-booking-tier-box').forEach(box => {
+                box.style.display = 'none';
+            });
+            document.querySelector('.polar-subscription-box').style.display = 'none'; // Also hide polar box
+            document.querySelector('.contact-info').style.display = 'none'; // Also hide contact info
+
+            // Show the calendar display div
+            calDisplayDiv.style.display = 'block';
+
+            // Execute the specific Cal.com inline embed function for the selected tier
+            calComTierConfigs[configKey](); 
           }
         });
-      });
-
-      closeModalButton.addEventListener('click', function() {
-        calcomModal.classList.remove('active'); // Hide modal
-        calcomModalIframe.src = ''; // Clear iframe src to stop video/reset state
-        document.body.style.overflow = ''; // Restore scrolling
-      });
-
-      // Close modal if clicking outside iframe, on overlay itself
-      calcomModal.addEventListener('click', function(event) {
-          if (event.target === calcomModal) {
-              calcomModal.classList.remove('active');
-              calcomModalIframe.src = '';
-              document.body.style.overflow = '';
-          }
       });
     });
   </script>
