@@ -382,6 +382,113 @@
         border-color: #000; /* Black border on hover */
     }
 
+    /* Polar Subscription Boxes */
+    .polar-subscription-box {
+        background-color: #fff;
+        color: #333;
+        border: 4px solid #000;
+        box-shadow: 4px 4px #e50914;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1 1 300px;
+        max-width: 380px;
+        box-sizing: border-box;
+        margin: 20px auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .polar-subscription-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 6px 6px 0 #FFD700;
+    }
+
+    .polar-subscription-box .price-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .polar-subscription-box .price-header h3 {
+        font-size: 1.6rem;
+        color: #000;
+        margin: 0 0 5px 0;
+    }
+
+    .polar-subscription-box .price-header .price-value {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #E50914;
+        margin: 0 0 5px 0;
+    }
+
+    .polar-subscription-box .price-header small {
+        display: block;
+        font-size: 0.8em;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .polar-subscription-box .feature-list {
+        text-align: left;
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .polar-subscription-box .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .polar-subscription-box .emoji {
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .polar-subscription-box .polar-button {
+        display: inline-block;
+        background: #000;
+        color: white;
+        border: 2px solid #E50914;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
+
+    .polar-subscription-box .polar-button:hover {
+        background: #FFD700;
+        color: #333;
+        border-color: #000;
+    }
+
+    .polar-subscription-box .contact-info-text {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 15px;
+        text-align: center;
+        font-style: italic;
+    }
+
+    /* Subscription Tiers Container */
+    .subscription-tiers-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 30px 5%;
+        background: #F0F0F0;
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+    }
 
     /* Cal.com Dynamic Embed Container */
     #cal-inline-calendar-display {
@@ -1014,77 +1121,83 @@
   </div>
 </div>
 
-<div class="promo-box polar-subscription-box">
-  <div class="price-header">
-    <h3>✨CLUB 112</h3>
-    <span class="price-value">$112/MO</span>
-    <small><i>(⚡️ QUICKIE LEADS ONLY)</i></small>
-  </div>
-       <ul>
-        <li><span class="emoji">🎬</span>1X REEL (11 SEC) ADS A MONTH</li>
-        <li><span class="emoji">⚡️</span>LEADS</li>
-        <li><span class="emoji">🆔</span>ATL5D DISCORD CLUB 112</li>
-        <li><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</li> 
-     </ul>
-  <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ"
-     data-polar-checkout
-     data-polar-checkout-theme="light"
-     class="polar-button">SUBSCRIBE</a>
+<!-- Subscription Tiers Section -->
+<div class="subscription-tiers-container">
+    <h3 class="section-title" style="width: 100%; text-align: center; margin-bottom: 30px;">
+        <span class="emoji-prefix">✨</span> SUBSCRIBE TO ATL5D SERVICES
+    </h3>
 
-  <p class="contact-info-text"><i>For unfunded businesses only.</i></p>
+    <!-- Club 112 Tier -->
+    <div class="polar-subscription-box">
+        <div class="price-header">
+            <h3>✨CLUB 112</h3>
+            <div class="price-value">$112/MO</div>
+            <small><i>(⚡️ QUICKIE LEADS ONLY)</i></small>
+        </div>
+        <div class="feature-list">
+            <div class="feature-item"><span class="emoji">🎬</span>1X REEL (11 SEC) ADS A MONTH</div>
+            <div class="feature-item"><span class="emoji">⚡️</span>LEADS</div>
+            <div class="feature-item"><span class="emoji">🆔</span>ATL5D DISCORD CLUB 112</div>
+            <div class="feature-item"><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</div>
+        </div>
+        <a href="https://buy.polar.sh/polar_cl_mMMdUiHYASZ97vWTQtiWuYwerjRJ4UrnRF27v2nqpNJ"
+           data-polar-checkout
+           data-polar-checkout-theme="light"
+           class="polar-button">SUBSCRIBE</a>
+        <p class="contact-info-text"><i>For unfunded businesses only.</i></p>
+    </div>
+
+    <!-- Midtown Tier -->
+    <div class="polar-subscription-box">
+        <div class="price-header">
+            <h3>✨MIDTOWN</h3>
+            <div class="price-value">$404/MO</div>
+            <small><i>(⚡️ QUICKIE + 🎤 PR )</i></small>
+        </div>
+        <div class="feature-list">
+            <div class="feature-item"><span class="emoji">🎬</span>4X REEL (11 SEC) ADS A MONTH</div>
+            <div class="feature-item"><span class="emoji">⚡️</span>LEADS</div>
+            <div class="feature-item"><span class="emoji">❤️‍🔥</span>4X REEL MAP. PINS</div>
+            <div class="feature-item"><span class="emoji">🆔</span>ATL5D DISCORD MIDTOWN</div>
+            <div class="feature-item"><span class="emoji">📣</span>4X REELS SHARED ON @ATL5D SOCIALS</div>
+            <div class="feature-item"><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</div>
+            <div class="feature-item"><span class="emoji">🅰️</span>404K $ATL PEACHDROPPED TO YOUR W🅰️LLO A MONTH</div>
+        </div>
+        <a href="https://buy.polar.sh/polar_cl_ppQafJqdX2xdLaHomNrgeIzbnCHpWMkonMLGj3MiOVa"
+           data-polar-checkout
+           data-polar-checkout-theme="light"
+           class="polar-button">SUBSCRIBE</a>
+        <p class="contact-info-text"><i>For unfunded businesses only.</i></p>
+    </div>
+
+    <!-- Gold Room Tier -->
+    <div class="polar-subscription-box">
+        <div class="price-header">
+            <h3>✨ GOLD ROOM</h3>
+            <div class="price-value">$999/MO</div>
+            <small><i>(⚡️ QUICKIE + 🎤 PR + 💎 GEM)</i></small>
+        </div>
+        <div class="feature-list">
+            <div class="feature-item"><span class="emoji">🎬</span>9X REEL (11 SEC) ADS A MONTH</div>
+            <div class="feature-item"><span class="emoji">⚡️</span>ALL LEADS</div>
+            <div class="feature-item"><span class="emoji">❤️‍🔥</span>9X REEL MAP. PINS</div>
+            <div class="feature-item"><span class="emoji">🆔</span>ATL5D DISCORD GOLD ROOM</div>
+            <div class="feature-item"><span class="emoji">📣</span>9X REELS SHARED ON @ATL5D SOCIALS</div>
+            <div class="feature-item"><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</div>
+            <div class="feature-item"><span class="emoji">🅰️</span>999K $ATL PEACHDROPPED TO YOUR W🅰️LLO A MONTH</div>
+        </div>
+        <a href="https://buy.polar.sh/polar_cl_CHGkoTZyoMe1OSnDcgMHmbYMb8gdrwk6jtIJX4GgVO8"
+           data-polar-checkout
+           data-polar-checkout-theme="light"
+           class="polar-button">SUBSCRIBE</a>
+        <p class="contact-info-text"><i>UNFUNDED BOSSES</i></p>
+    </div>
 </div>
 
-<div class="promo-box polar-subscription-box">
-  <div class="price-header">
-    <h3>✨MIDTOWN</h3>
-    <span class="price-value">$404/MO</span>
-    <small><i>(⚡️ QUICKIE + 🎤 PR )</i></small>
-  </div>
-        <ul>
-        <li><span class="emoji">🎬</span>4X REEL (11 SEC) ADS A MONTH</li>
-        <li><span class="emoji">⚡️</span>LEADS</li>
-        <li><span class="emoji">❤️‍🔥</span>4X REEL MAP. PINS</li>
-        <li><span class="emoji">🆔</span>ATL5D DISCORD MIDTOWN</li>
-        <li><span class="emoji">📣</span>4X REELS SHARED ON @ATL5D SOCIALS</li>
-        <li><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</li>
-        <li><span class="emoji">🅰️</span>404K $ATL PEACHDROPPED TO YOUR W🅰️LLO A MONTH</li>
-     </ul>
-  <a href="https://buy.polar.sh/polar_cl_ppQafJqdX2xdLaHomNrgeIzbnCHpWMkonMLGj3MiOVa"
-     data-polar-checkout
-     data-polar-checkout-theme="light"
-     class="polar-button">SUBSCRIBE</a>
-
-  <p class="contact-info-text"><i>For unfunded businesses only.</i></p>
-</div>
-
-<div class="promo-box polar-subscription-box">
-  <div class="price-header">
-    <h3>✨ GOLD ROOM</h3>
-    <span class="price-value">$999/MO</span>
-    <small><i>(⚡️ QUICKIE + 🎤 PR + 💎 GEM)</i></small>
-  </div>
-       <ul>
-        <li><span class="emoji">🎬</span>9X REEL (11 SEC) ADS A MONTH</li>
-        <li><span class="emoji">⚡️</span>ALL LEADS</li>
-        <li><span class="emoji">❤️‍🔥</span>9X REEL MAP. PINS</li>
-        <li><span class="emoji">🆔</span>ATL5D DISCORD GOLD ROOM</li>
-        <li><span class="emoji">📣</span>9X REELS SHARED ON @ATL5D SOCIALS</li>
-        <li><span class="emoji">💟</span>REEL TIKTOK ATL5D REVIEWS</li>
-        <li><span class="emoji">🅰️</span>999K $ATL PEACHDROPPED TO YOUR W🅰️LLO A MONTH</li>
-     </ul>
-  <a href="https://buy.polar.sh/polar_cl_CHGkoTZyoMe1OSnDcgMHmbYMb8gdrwk6jtIJX4GgVO8"
-     data-polar-checkout
-     data-polar-checkout-theme="light"
-     class="polar-button">SUBSCRIBE</a>
-
-  <p class="contact-info-text"><i>UNFUNDED BOSSES</i></p>
-</div>
-
-  <div class="contact-info" style="margin-top: 50px;">
+  <div class="contact-info" style="margin-top: 50px; text-align: center; padding: 0 5%;">
     <p>For funded businesses, connect with the Wizard of Hahz to discuss your specific needs and a tailored pricing structure based on project scope and deliverables. Inquiries regarding funded campaigns or bespoke solutions, please contact us directly:</p>
     <p><strong><a href="https://t.me/hahznft" target="_blank" style="color: #E50914; text-decoration: none; font-weight: bold;">Portal to the Wizard of Hahz</a></strong></p>
   </div>
-  </section>
 
   <footer class="footer">
     <div class="footer-columns">
